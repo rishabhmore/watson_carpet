@@ -55,7 +55,7 @@
         "new_tab": true,
         "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
         "menu_color_scheme": "scheme-2",
-        "menu_font_use_default_body": true,
+        "menu_font_use_default_body": false,
         "menu_font_family": "old_standard_tt_n4",
         "enable_country_selector": true,
         "enable_language_selector": true,

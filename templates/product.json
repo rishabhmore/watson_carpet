@@ -166,65 +166,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "multicolumn_dxPziq": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_8TLW33": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>4103 Ponce De Leon BlvdCoral Gables, FL 33146<br/><strong>(305) 445-1939</strong></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_j4E4RV": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>6151 Biscayne BlvdMiami, FL 33138<br/><strong>(305) 325-1919</strong></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_wreDwe": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p>2250 NE 163 StreetNorth Miami, FL 33160<br/><strong>(305) 944-1015</strong></p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_8TLW33",
-        "column_j4E4RV",
-        "column_wreDwe"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-3",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "main",
     "featured-collection",
-    "product_image_with_text_VyWzWQ",
-    "multicolumn_dxPziq"
+    "product_image_with_text_VyWzWQ"
   ]
 }
