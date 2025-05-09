@@ -46,12 +46,7 @@
 
     .header__menu-item {
       font-family: {% if section.settings.menu_font_use_default_body %}
-        {% if section.settings.menu_font_family.system? %}
-          {% comment %} No font set in the font picker, so we display body font {% endcomment %}
-          {{ settings.type_body_font.family }}
-        {% else %}
-          {{ section.settings.menu_font_family.family }}
-        {% endif %}
+        {{ settings.type_body_font.family }}
       {% else %}
         {{ section.settings.menu_font_family.family }}
       {% endif %};
@@ -684,7 +679,7 @@
       "id": "menu_font_family",
       "label": "Use Custom Font",
       "default": "sans-serif",
-      "info":"Toggle off theme body font to apply custom font"
+      "info": "Toggle off theme body font to apply custom font"
     },
     {
       "type": "header",
