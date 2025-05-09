@@ -125,9 +125,18 @@
       }
     {% endif %}
 
-    #shopify-section-{{section.id}} .header__inline-menu,  #shopify-section-{{section.id}}  .header__heading, #shopify-section-{{section.id}} .header__icons{
-        justify-self:{{ section.settings.header_items_alignment}};
+    /* logo and menu */
+    #shopify-section-{{section.id}} .header__inline-menu,
+    #shopify-section-{{section.id}} .header__heading-link
+    {
+        justify-self:{{ section.settings.header_menu_alignment}};
       }
+    /* icons  */
+    #shopify-section-{{section.id}} .header__icons,
+     #shopify-section-{{section.id}} .header__search{
+        justify-self:{{ section.settings.header_icons_alignment}};
+      }
+
   }
 
   @media screen and (min-width: 990px) {
@@ -325,7 +334,7 @@
     </div>
     {% render 'header-search', input_id: 'Search-In-Modal' %}
 
-    {%- if shop.customer_accounts_enabled -%}
+    {%- if shop.customer_accounts_enabled and section.settings.enable_customer_avatar -%}
       <a
         href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
         class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
@@ -339,7 +348,7 @@
             {%- endif -%}
           </account-icon>
         {%- else -%}
-          {% render 'icon-account', show_icon: shop.customer_accounts_enabled %}
+          {% render 'icon-account' %}
         {%- endif -%}
         <span class="visually-hidden">
           {%- liquid
@@ -778,10 +787,20 @@
       "default": 0
     },
     {
+      "type": "header",
+      "content": "Header Item Alignment"
+    },
+    {
       "type": "text_alignment",
-      "id": "header_items_alignment",
-      "default": "left",
-      "label": "Header Items alignment"
+      "id": "header_menu_alignment",
+      "default": "center",
+      "label": "Header Menu alignment"
+    },
+    {
+      "type": "text_alignment",
+      "id": "header_icons_alignment",
+      "default": "center",
+      "label": "Header Icons alignment"
     },
     {
       "type": "header",
