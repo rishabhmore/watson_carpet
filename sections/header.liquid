@@ -119,7 +119,7 @@
     .section-header {
       margin-bottom: {{ section.settings.margin_bottom }}px;
     }
-    {% if section.settings.centered_menu %}
+    {% if section.settings.logo_position == 'middle-left' and section.settings.centered_menu %}
       #shopify-section-{{section.id}} .header--middle-left {
         grid-template-columns:1fr 3fr auto;
       }
@@ -202,12 +202,22 @@
       render 'header-search', input_id: 'Search-In-Modal-1'
     endif
   -%}
-
+  {% assign new_tab = section.settings.new_tab %}
   {%- if section.settings.logo_position != 'middle-center' -%}
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
     {%- endif -%}
-    <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+    {% assign is_external = false %}
+    {% if section.settings.logo_link contains 'http' or section.settings.logo_link contains 'https' %}
+      {% assign is_external = true %}
+    {% endif %}
+    <a
+      href="{{ section.settings.logo_link | default: shop.url }}"
+      class="header__heading-link link link--text focus-inset"
+      {% if new_tab and is_external %}
+        rel="noopener" target="_blank"
+      {% endif %}
+    >
       {%- if settings.logo != blank -%}
         <div class="header__heading-logo-wrapper">
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
@@ -250,7 +260,17 @@
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
     {%- endif -%}
-    <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+    {% assign is_external = false %}
+    {% if section.settings.logo_link contains 'http' or section.settings.logo_link contains 'https' %}
+      {% assign is_external = true %}
+    {% endif %}
+    <a
+      href="{{ section.settings.logo_link | default: shop.url }}"
+      class="header__heading-link link link--text focus-inset"
+      {% if new_tab and is_external %}
+        rel="noopener" target="_blank"
+      {% endif %}
+    >
       {%- if settings.logo != blank -%}
         <div class="header__heading-logo-wrapper">
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
@@ -319,7 +339,7 @@
             {%- endif -%}
           </account-icon>
         {%- else -%}
-          {% render 'icon-account' %}
+          {% render 'icon-account', show_icon: shop.customer_accounts_enabled %}
         {%- endif -%}
         <span class="visually-hidden">
           {%- liquid
@@ -562,6 +582,14 @@
     },
     {
       "type": "checkbox",
+      "id": "centered_menu",
+      "default": false,
+      "label": "Centered Menu",
+      "info": "Centered menu only works when Desktop logo position is set to 'Middle Left'."
+    },
+    { "type": "url", "id": "logo_link", "label": "Logo URL" },
+    {
+      "type": "checkbox",
       "id": "nav_border_top",
       "default": false,
       "label": "Navbar Border Top"
@@ -748,12 +776,6 @@
       "unit": "px",
       "label": "t:sections.header.settings.margin_bottom.label",
       "default": 0
-    },
-    {
-      "type": "checkbox",
-      "id": "centered_menu",
-      "default": false,
-      "label": "Centered Menu"
     },
     {
       "type": "text_alignment",

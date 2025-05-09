@@ -50,6 +50,7 @@
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
+    assign new_tab = section.settings.new_tab
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
       assign has_social_icons = false
     endif
@@ -156,15 +157,26 @@
                           class="footer-block__image-wrapper"
                           style="max-width: min(100%, {{ settings.brand_image_width }}px);"
                         >
-                          {{
-                            settings.brand_image
-                            | image_url: width: 1100
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                              height: brand_image_height,
-                              width: settings.brand_image_width
-                          }}
+                          {% if block.settings.logo_link contains 'http' or block.settings.logo_link contains 'https' %}
+                            {% assign is_external = true %}
+                          {% endif %}
+                          <a
+                            href="{{ block.settings.logo_link | default: shop.url }}"
+                            class="header__heading-link link link--text focus-inset"
+                            {% if is_external %}
+                              rel="noopener" target="_blank"
+                            {% endif %}
+                          >
+                            {{
+                              settings.brand_image
+                              | image_url: width: 1100
+                              | image_tag:
+                                loading: 'lazy',
+                                widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
+                                height: brand_image_height,
+                                width: settings.brand_image_width
+                            -}}
+                          </a>
                         </div>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
@@ -429,6 +441,10 @@
           "type": "header",
           "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
         },
+        {"type":"url",
+          "id":"logo_link",
+          "label": "Logo URL"
+          },
         {
           "type": "checkbox",
           "id": "show_social",

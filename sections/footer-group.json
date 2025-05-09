@@ -13,6 +13,48 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "link_list_zPA6ff": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Contact Us</strong>",
+            "menu": "",
+            "new_tab": true
+          }
+        },
+        "brand_information_rDDR9L": {
+          "type": "brand_information",
+          "disabled": true,
+          "settings": {
+            "logo_link": "shopify://products/anatolia-1",
+            "show_social": false
+          }
+        },
+        "link_list_cMCaiH": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "<strong>PRODUCTS</strong>",
+            "menu": "",
+            "new_tab": true
+          }
+        },
+        "link_list_X73fx9": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "<strong>GET IN TOUCH</strong>",
+            "menu": "",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "link_list_zPA6ff",
+        "brand_information_rDDR9L",
+        "link_list_cMCaiH",
+        "link_list_X73fx9"
+      ],
       "custom_css": [],
       "settings": {
         "color_scheme": "scheme-57782d43-f7e9-4299-8c64-5fd97176f8b0",
