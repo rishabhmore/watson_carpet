@@ -1,0 +1,344 @@
+<style>
+  /* Modal Styles */
+  .product__modal {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal_content {
+    background: #fff;
+    padding: 20px;
+    width: 70vw;
+    height: 80vh;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  @media screen and (max-width: 800px) {
+    .product__modal {
+      margin: 0;
+    }
+
+    .modal_content {
+      width: 100vw;
+      height: 100vh;
+      padding: 5px;
+    }
+  }
+
+  .modal__close {
+    position: sticky;
+    top: 10px;
+    left: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    right: 10px;
+    color: #000;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .modal__close:hover {
+    color: #454545;
+  }
+
+  .modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .open-modal-btn {
+    background: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    font-family: Barlow;
+    margin: 0 0 0 -5px;
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .open-modal-btn:hover {
+    color: #4e4e4e;
+    text-decoration: underline;
+
+  }
+  .content-title {
+    font-size: larger;
+  }
+  .care-content {
+    padding: 0 30px !important;
+  }
+  .care-accordion {
+    border-bottom: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+  }
+
+
+</style>
+<!-- Modal Structure -->
+<div class="product__modal" id="productDetailsModal">
+  <div class="modal__overlay" onclick="closeModal()"> </div>
+  <div class="modal_content">
+    <button class="modal__close" onclick="closeModal()">×</button>
+    <div class="modal__header">
+      <h2 class="h2 modal__title inline-richtext underline center">Care Instructions</h2>
+    </div>
+    <div class="modal__body">
+      <div class="product__accordion accordion quick-add-hidden">
+
+        <!-- Handmade Carpet and Rug Care -->
+        <details>
+          <summary>
+            <div class="summary__title">
+              {% render 'icon-accordion'
+                , icon: 'box' %}
+              <h2 class="h4 accordion__title inline-richtext content-title">HANDMADE CARPET AND RUG CARE</h2>
+            </div>
+            {% render 'icon-caret' %}
+          </summary>
+          <div class="accordion__content rte care-content">
+            <p>With proper care, a handmade rug will last for generations. First and foremost, you should always use anti-slip padding. It will protect the floor, minimize wear of the rug, make it softer to walk on, and keep the rug from slipping. In addition, you should use protectors on the feet of any tables or chairs that will be resting on top of the rug. This will prevent indentations and wear.</p>
+            <div class="rich-text__blocks left">
+              <h2 class="rich-text__heading rte inline-richtext h2"></h2>
+              <div class="rich-text__text rte">
+                <p>
+                  <strong>VACUUMING</strong>
+                </p>
+                <p>Vacuuming area rugs will go a long way towards prolonging the appearance and life of your rug or carpet and is the best way to remove everyday dirt and dust. We recommend vacuuming once a week, or twice a week if the carpet is in a high-traffic area.&nbsp;</p>
+                <p>Use only a suction vacuum on your rug, and not a vacuum with a beater bar brush. Vacuum across in both directions of the traffic pattern to prevent matting. Be sure to check and empty your vacuum bag regularly, as vacuums become less efficient as the debris bag becomes full.&nbsp;</p>
+                <p>When your rug or carpet is first installed, you may notice an accumulation of fuzziness on the surface from vacuuming. This is perfectly normal and will not shorten the life of your rug. It is merely the result of loose fibers created during the weaving process.</p>
+                <p></p>
+                <p>
+                  <strong>STAIN REMOVAL</strong>
+                </p>
+                <p>If an area rug becomes spotted or stained, work quickly. When possible, scoop up solids and blot liquids immediately after a spill occurs. Absorb as much liquid as possible with a clean white cloth or paper towel without scrubbing the area to prevent matting or fuzzing. Contact a handmade rug cleaning professional immediately.</p>
+                <p></p>
+                <p>
+                  <strong>SPOT CLEANING</strong>
+                </p>
+                <p>Spot clean by hand with a clean cloth towel and mild wool-only detergent (pH range of 5-9), which won’t leave a residue. Add only minimal moisture to the area. Pouring large amounts of water can spread the stain and cause a larger halo effect. Also, do not pour wine or salt water onto the stain. Salt can cause the leaching of color from a rug. When performing spot cleaning, blot the affected areas. Rubbing can cause fiber damage. Immediate attention to spills and spots will give the best results.</p>
+                <p></p>
+                <p>
+                  <strong>PROFESSIONAL CLEANING</strong>
+                </p>
+                <p>If you have any major spills or stains, seek professional cleaners immediately. For regular maintenance, it is recommended to clean your rug every 2–5 years, depending on use. Do not steam clean. A reputable cleaner will hand-wash your rug using a pH-neutral detergent. For antique rugs, color testing should be performed so that colors do not bleed during the washing process.</p>
+                <p></p>
+                <p>
+                  <strong>MOLD AND MILDEW PREVENTION</strong>
+                </p>
+                <p>Moisture causes potential mold and mildew issues with rugs. If spills occur, make sure that the rug dries completely. If possible, lift the affected area off of the pad to allow air to circulate. This will allow the moisture to dissipate. Plants are a major cause of this issue as well. Do not place a potted plant on the area rug directly, even if there is a saucer. The continuous moisture can cause rot to occur.</p>
+                <p></p>
+                <p>
+                  <strong>REPAIR AND RESTORATION</strong>
+                </p>
+                <p>Part of the beauty of a handmade rug is that it can be repaired or restored. Be mindful of the edges and ends of your rugs. Due to regular use, these are often the first to show signs of wear. If the serging or fringe has worn, a tear or cut in the rug has happened, or other damage has occurred, please contact your local STARK representative for a recommendation to a local restorer. If restored well, the repair will be invisible, and good restoration does not diminish the value of your rug. If not maintained, the rug will sustain further damage with use.</p>
+                <p></p>
+                <p>
+                  <strong>ROTATING YOUR RUG</strong>
+                </p>
+                <p>All rugs will fade somewhat over time. It is recommended that your rug be rotated annually. This will help prevent obvious wear patterns and fading.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Wool Carpet Care -->
+      <div class="product__accordion accordion quick-add-hidden">
+        <details>
+          <summary>
+            <div class="summary__title">
+              {% render 'icon-accordion'
+                , icon: 'box' %}
+              <h2 class="h4 accordion__title inline-richtext content-title">WOOL CARPET CARE</h2>
+            </div>
+            {% render 'icon-caret' %}
+          </summary>
+          <div class="accordion__content rte care-content">
+            <div class="rich-text__text rte">
+              <p>
+                <strong>VACUUMING</strong>
+              </p>
+              <p>Weekly vacuuming of the carpet removes loose dirt, dust, and debris. Use a vacuum cleaner with suction only—no beater bar—to prevent wear and tear on the carpet. If your vacuum has a beater bar, raise it to the highest level to cause the least wear.</p>
+              <p></p>
+              <p>
+                <strong>SPOT CLEANING</strong>
+              </p>
+              <p>For small spills and stains, act quickly. Blot the spill gently with a clean, dry cloth or paper towel to absorb as much liquid as possible. Avoid rubbing the stain, as this can push it deeper into the fibers.&nbsp;</p>
+              <p>Mix a mild carpet cleaner or a mixture of water and a small amount of dish soap. Test the cleaner in an inconspicuous area to ensure it doesn't cause any color or texture damage. Dampen a clean cloth with the cleaning solution and gently blot the stained area from the outside in. Don't oversaturate the carpet. Blot the area with a clean, damp cloth to remove any cleaning residue, and then blot again with a dry cloth to absorb excess moisture. Extract as much moisture as possible during the cleaning process.&nbsp;</p>
+              <p>Do not ever add large amounts of liquid to the spill. It can cause the stain to halo and become much larger. A dry-cleaning powder can be used. Brush the powder into the stain and let it sit for the recommended amount of time. If necessary, call a professional cleaner.</p>
+              <p></p>
+              <p>
+                <strong>PROFESSIONAL CLEANING</strong>
+              </p>
+              <p>Depending on the level of dirt and stains, you might need to deep clean the carpet periodically. Hiring a professional cleaning service is recommended. Do not steam clean or excessively wet the carpet, as many carpets are made with a jute backing that can be sensitive to moisture. After deep cleaning, allow the carpet to dry thoroughly before replacing furniture.</p>
+              <p></p>
+              <p>
+                <strong>SHEDDING &amp; SHADING</strong>
+              </p>
+              <p>LONG TUFTS:&nbsp;If you find a stray tuft protruding from the surface of your carpet, do not pull it out. Instead, cut it with scissors to the level of the surrounding pile.</p>
+              <p>SHEDDING: &nbsp;With a new carpet, short pieces of fiber will work loose from the pile during the first few months. This is to be expected and does not mean that there is a defect. The amount of fiber lost represents a very small fraction of the whole carpet.</p>
+              <p>SHADING: Light and dark patches often appear on a cut-pile carpet shortly after it has been laid. This shading is usually most noticeable on plain velvet carpet. It is not a sign of wear, but simply the result of the new tufts being trodden down in varying directions.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Hand-Tufted Carpet Care -->
+      <div class="product__accordion accordion quick-add-hidden">
+        <details>
+          <summary>
+            <div class="summary__title">
+              {% render 'icon-accordion'
+                , icon: 'box' %}
+              <h2 class="h4 accordion__title inline-richtext content-title">HAND-TUFTED CARPET CARE</h2>
+            </div>
+            {% render 'icon-caret' %}
+          </summary>
+          <div class="accordion__content rte care-content">
+            <div class="rich-text__blocks left">
+              <div class="rich-text__text rte">
+                <p>
+                  <strong>VACUUMING</strong>
+                </p>
+                <p>Regular vacuuming is a primary consideration in carpet care. Use a vacuum cleaner with suction only—no beater bar—to prevent wear on the carpet. If your vacuum has a beater bar, raise it to the highest level to cause the least wear.</p>
+                <p></p>
+                <p>
+                  <strong>SPOT CLEANING</strong>
+                </p>
+                <p>While there is no guarantee of a stain’s removal, the sooner you tend to a spill or spot, the better. The longer the spill remains on the carpet the harder it will be to remove. A general caution in the treatment of any spill is “blot, do not rub.”&nbsp;</p>
+                <p>Take a clean white paper towel or napkin and cover the spot. Blot the towel over the spill. Continue this process until all of the excess moisture from the spill is absorbed into the paper towel. Keep using fresh, dry paper towels. Make sure when you blot the paper towel over the spill that you barely pick up additional moisture. Now take a slightly damp paper towel and repeat the above process to dilute any residual moisture from the spill. Then take a dry paper towel and repeat the process to remove all excess moisture. If the stain is still visible, a dry-cleaning powder can be used. Brush the powder into the stain and let it sit for the recommended amount of time. If necessary, call a professional cleaner.</p>
+                <p></p>
+                <p>
+                  <strong>PROFESSIONAL CLEANING</strong>
+                </p>
+                <p>Depending on the level of dirt and stains, you might need to deep clean the carpet periodically. Hiring a professional cleaning service is recommended.</p>
+                <p></p>
+                <p>
+                  <strong>SHADING, SPROUTING &amp; SHEDDING</strong>
+                </p>
+                <p>SHADING: Almost all cut-pile carpets shade. This effect, called watermarking, is caused by a slight directional change in the pile forcing light to reflect differently on the surface. It is similar to shading in beautiful velvet fabrics and may be mild to extreme. This is not a manufacturing defect. Although shading cannot be eliminated, regular vacuuming can help.</p>
+                <p>SPROUTING: After some use, you may experience various sprouting of small tufts of yarn. This may occur for several months on a new carpet. This is a normal occurrence and is not a manufacturing defect. These individual threads can be cut even with the pile surface. In addition, it is possible to experience the unraveling of some yarn in loop-pile carpets. If it is only one tuft, it is okay to cut this. If a piece of yarn unravelled it may require reweaving. This is a simple process and is not considered a manufacturing defect. Please contact your showroom if this occurs.</p>
+                <p>SHEDDING: In the first several months a new wool carpet may experience some shedding of fiber. When vacuuming the carpet, you may notice the entire bag filled with this fiber. This should cause no concern as it is normal and expected. Loose fibers, which are not held tightly by the yarn, are removed by vacuuming. The amount of fiber removed will decrease with each vacuuming and finally be very minimal.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Cleaning Rugs Made from Other Fibers -->
+      <div class="product__accordion accordion quick-add-hidden">
+        <details>
+          <summary>
+            <div class="summary__title">
+              {% render 'icon-accordion'
+                , icon: 'box' %}
+              <h2 class="h4 accordion__title inline-richtext content-title">CLEANING RUGS MADE FROM OTHER FIBERS</h2>
+            </div>
+            {% render 'icon-caret' %}
+          </summary>
+          <div class="accordion__content rte care-content">
+            <div class="rich-text__blocks left">
+              <div class="rich-text__text rte">
+                <p>
+                  <strong>VISCOSE / BANANA SILK / BAMBOO SILK / RAYON</strong>
+                </p>
+                <p>These are cellulose fibers and may be cleaned using a very gentle soap. Blot with a fine cloth in the direction of the pile. To avoid shrinking and possible browning, avoid excessive drying and agitation. As with wool, take care with alkaline products.</p>
+                <p></p>
+                <p>
+                  <strong>COTTON</strong>
+                </p>
+                <p>Do not use harsh chemicals on cotton. When the stain initially happens, blot it and do not apply water or any other cleaning solvents, which would allow the stain to spread. Professional cleaning is recommended, where they will use soft soap on both sides. The area rug will be rinsed, and then put in the temperature room for drying.</p>
+                <p></p>
+                <p>
+                  <strong>SILK</strong>
+                </p>
+                <p>Clean silk using a dry cleaning process. These fibers may be damaged by natural and synthetic acids and sunlight. Consult a rug cleaning specialist for additional information about cleaning silk.</p>
+                <p></p>
+                <p>
+                  <strong>SISAL / JUTE / ABACA</strong>
+                </p>
+                <p>Never saturate your carpet with water or cleaner as this will stain the natural fibers. Whenever possible, clean up a spill immediately after it occurs. A liquid spill left untreated will act as a magnet to any dirt particles that are in the rug, causing the dirt to rise to the surface. This dirt may cause a dark stain. If liquid, blot up as much as you can with a clean, undyed cloth, pressing firmly all around the spill to absorb as much of the liquid as possible. If the material is solid, scrape up what you can with a spoon or the dull edge of a knife or spatula.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- STARK Performance Acrylic -->
+      <div class="product__accordion accordion quick-add-hidden">
+        <details>
+          <summary>
+            <div class="summary__title">
+              {% render 'icon-accordion'
+                , icon: 'box' %}
+              <h2 class="h4 accordion__title inline-richtext content-title">STARK PERFORMANCE ACRYLIC</h2>
+            </div>
+            {% render 'icon-caret' %}
+          </summary>
+          <div class="accordion__content rte care-content">
+            <p>STARK Performance Acrylic is made with 100% solution-dyed acrylic to provide long-lasting luxury<br>with little maintenance required. For proper care, please observe the following guidelines.</p>
+            <div class="rich-text__text rte">
+              <p>
+                <strong>GENERAL CARE</strong>
+              </p>
+              <p>1. We recommend using a rug pad to preserve the life of the rug.<br>2. One of the best, easiest ways to maintain your rugs is to regularly brush off any loose dirt that may accumulate before it becomes embedded in the fibers.<br>3. Tend to spills immediately. The quicker you clean spills and stains, the easier they are to remove.<br>4. Use a vacuum or carpet sweeper on a regular basis. If your vacuum has a beater bar, it should be turned off or set to the highest setting to avoid agitating rug fibers.<br>5. For excessive dirt removal from foot traffic, rugs can be power-washed.</p>
+              <p></p>
+              <p>
+                <strong>SPILLS</strong>
+              </p>
+              <p>1. When first tending to a spill, apply a light mist of mild soap and water using a spray bottle. Work the solution into the stain by lightly agitating the surface with a clean, soft towel or sponge. Avoid scrubbing, and do not use a hard-bristled brush or anything else that could damage the rug.<br>2. Rinse the entire fabric thoroughly to remove all soap residue. Repeat rinsing and blotting until all soap residue is removed.<br>3. Blot excess moisture with a clean, soft towel or sponge.<br>4. Air dry.</p>
+              <p></p>
+              <p>
+                <strong>TOUGH STAINS</strong>
+              </p>
+              <p>Professional cleaning is always our first recommendation for tough stains. Advise cleaners to use a low-heat steam setting to avoid damaging the fibers. For do-it-yourself tough stain removal, the following steps are recommended:<br><br>1. Prepare a solution with one ounce of household bleach and 1/4 ounce of mild soap per 16 ounces of water.<br>2. Spray on the entire area and allow it to soak into the rug for 15 minutes.<br>3. Blot the entire surface area with a sponge or clean towel.<br>4. Rinse thoroughly with water only to remove all soap residue.<br>5. Air dry.</p>
+              <p></p>
+              <p>
+                <strong>PET AND URINE STAINS</strong>
+              </p>
+              <p>1. Combine 1/4 cup of dishwashing liquid and 1⁄2 cup of white vinegar per gallon of water, or use commercial cleaner options such as 303® Multi-Purpose Cleaner or Resolve®.<br>2. Spray on the entire area and allow it to soak into the rug for 15 minutes.<br>3. Blot the entire surface area with a sponge or clean towel.<br>4. Rinse thoroughly with water only to remove all soap residue.<br>5. Air dry.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Button to Open Modal -->
+<button
+  class="open-modal-btn"
+  onclick="openModal()"
+  style="color:#000">
+  {% render 'icon-accordion'
+    , icon: 'heart' %} Care Instructions</button>
+<script>
+  function openModal() {
+    document.getElementById('productDetailsModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('productDetailsModal').style.display = 'none';
+  }
+</script>

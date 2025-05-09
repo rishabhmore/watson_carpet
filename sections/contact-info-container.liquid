@@ -1,0 +1,141 @@
+{%- style -%}
+    .contact-info-container {
+      display: flex;
+      flex-wrap: wrap; /* Ensure items wrap in smaller screens */
+      gap: 2rem; /* Space between items */
+      margin-top: 4rem;
+      padding-top: {{ section.settings.padding_top | default: 20 }}px; /* Top padding */
+      padding-bottom: {{ section.settings.padding_bottom | default: 20 }}px; /* Bottom padding */
+    }
+
+    .contact-info-item {
+      flex: 1 1 100%; /* Full width on smaller screens, adapt on larger screens */
+      max-width: 300px; /* Maximum width for each item */
+      box-sizing: border-box; /* Include padding and border in width calculation */
+      border:0.8px solid #ccc;
+      padding:10px 20px;
+      border-radius:8px;
+  }
+
+    @media screen and (min-width: 750px) {
+      .contact-info-item {
+        flex: 1; /* Flex items will share available space evenly on larger screens */
+        max-width: none; /* Remove max-width constraint */
+      }
+    }
+
+    .contact-info-item h3 {
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-item ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .contact-info-item ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.1rem;
+      justify-content:flex-start !important;
+      /* Space between social icons */
+    }
+    .social-container{
+
+    }
+{%- endstyle -%}
+
+<section class="contact-info-container page-width">
+  <div class="contact-info-item">
+    <h3 style="color:#959595">{{ section.settings.address_title }}</h3>
+    <div class="rich-text-content">
+      {{ section.settings.address_content }}
+    </div>
+  </div>
+
+  <div class="contact-info-item">
+    <h3 style="color:#959595">Email</h3>
+    <ul>
+      {%- assign email_list = section.settings.email_list | split: ',' -%}
+      {%- for email in email_list -%}
+        <li>{{ email }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="contact-info-item">
+    <h3 style="color:#959595">Phone</h3>
+    <ul>
+      {%- assign phone_list = section.settings.phone_list | split: ',' -%}
+      {%- for phone in phone_list -%}
+        <li>{{ phone }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="contact-info-item">
+    <h3 style="color:#959595">Follow Us</h3>
+    <div class="social-container">
+      {% render 'social-icons', class: 'social-icons ' %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Information",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "address_title",
+      "default": "Address",
+      "label": "Address Title"
+    },
+    {
+      "type": "richtext",
+      "id": "address_content",
+      "default": "<p>Your address goes here.</p>",
+      "label": "Address Content"
+    },
+    {
+      "type": "text",
+      "id": "email_list",
+      "label": "Email List",
+      "default": "example@example.com,info@example.com",
+      "info": "Enter multiple emails separated by commas."
+    },
+    {
+      "type": "text",
+      "id": "phone_list",
+      "label": "Phone List",
+      "default": "+1234567890,+0987654321",
+      "info": "Enter multiple phone numbers separated by commas."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 20
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,165 @@
+{%- comment %}
+  Renders product variant options
+{%- endcomment %}
+
+{%- liquid
+  assign product_form_id = 'product-form-' | append: section.id
+-%}
+
+<div class="variant-options-container">
+
+{%- assign values_count = option.values.size -%}
+  <!-- Get the count of values -->
+  {%- assign max_display_count = 4 -%}
+  <!-- Set max number of visible swatches to display -->
+
+  {%- for value in option.values -%}
+
+    {%- assign variant = product.variants | where: 'option1', value | first -%}
+    {%- if variant and variant.featured_image -%}
+      {%- assign swatch_image_url = variant.featured_image.src | image_url: width: 50 -%}
+      {%- assign value.swatch.image = swatch_image_url -%}
+    {%- else -%}
+      {%- assign swatch_image_url = null -%}
+      {%- assign value.swatch.image = null -%}
+    {%- endif -%}
+    {%- assign option_disabled = true -%}
+    {%- if value.available -%}
+      {%- assign option_disabled = false -%}
+    {%- endif -%}
+
+    {%- capture input_id -%}
+      {{ section.id }}-{{ option.position }}-{{ forloop.index0 }}-{{ product.id }}
+    {%- endcapture -%}
+    {%- capture input_name -%}
+      {{ option.name }}-{{ option.position }}-{{ product.id }}
+    {%- endcapture -%}
+    {%- capture input_dataset -%}
+      data-product-url="{{ value.product_url }}"
+      data-option-value-id="{{ value.id }}"    
+    {%- endcapture -%}
+    {%- capture label_unavailable -%}
+      <span class="visually-hidden label-unavailable">
+        {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+      </span>
+    {%- endcapture -%}
+    {%- if picker_type == 'swatch' -%}
+      {%- if showMoreSwatch or forloop.index0 < max_display_count or values_count <= max_display_count -%}
+        {%- capture help_text -%}
+          <span class="visually-hidden">{{ value | escape }}</span>
+          {{ label_unavailable }}
+        {%- endcapture -%}
+        {%
+          render 'swatch-input', id: input_id, name: input_name, value: value | escape, swatch: value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled: option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props: input_dataset, swatch_image_url: swatch_image_url, variant_id: variant.id, product_handle: product.handle
+        %}
+        {%- elsif forloop.index0 == max_display_count and values_count > max_display_count -%}
+        <!-- Display the '10+' style swatch for remaining values -->
+        <label class="swatch-input__label  swatch-input__label--square">
+          <span class="show-more-swatch" onclick="window.location.href='{{ product.url }}';">{{ values_count | minus: max_display_count }}+</span>
+        </label>
+
+
+      {%- endif -%}
+
+    {%- elsif picker_type == 'button' -%}
+      <!-- Always render button options -->
+      <input
+        type="radio"
+        id="{{ input_id }}"
+        name="{{ input_name | escape }}"
+        value="{{ value | escape }}"
+        form="{{ product_form_id }}"
+        {% if value.selected %}
+        checked
+        {% endif %}
+        {% if option_disabled %}
+        class="disabled"
+        {% endif %}
+        {{ input_dataset }}>
+      <label for="{{ input_id }}" class="button-label">
+        {{ value -}}
+        {{ label_unavailable }}
+      </label>
+    {%- endif -%}
+
+  {%- endfor -%}
+</div>
+
+
+<style>
+  /* Custom styling for the variant options */
+  .variant-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .button-label {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .shape-details-container {
+    margin-top: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
+
+  .form-select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #dcdcdc;
+    background-color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .form-select:focus {
+    border-color: #5e5e5e;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .show-more-swatch {
+    text-align: center;
+    text-decoration: underline;
+    font-size: small;
+    cursor: pointer;
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantContainers = document.querySelectorAll('.variant-options-container');
+
+    variantContainers.forEach(function (container) {
+      const productId = container.getAttribute('data-product-id');
+      const swatches = container.querySelectorAll('.swatch-input input');
+      swatches.forEach(function (swatch) {
+        swatch.addEventListener('change', function () {
+          if (!this.disabled) {
+            // Remove selected class from all swatches in the current container
+            container.querySelectorAll('.swatch-input input').forEach(function (input) {
+              input.checked = false;
+            });
+
+            // Add selected class to clicked swatch
+            this.checked = true;
+          }
+        });
+      });
+    });
+  });
+</script>

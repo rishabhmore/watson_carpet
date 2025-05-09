@@ -1,0 +1,316 @@
+{% comment %}
+  Snippet to display a responsive image slider with left and right navigation buttons.
+  Parameters:
+  - featured_media: Featured image URL or object.
+  - width: Width of each image (optional).
+  - height: Height of each image (optional).
+{% endcomment %}
+<div
+  id="MediaGallery-{{ section.id }}"
+  role="region"
+  {% if section.settings.enable_sticky_info %}
+  class="product__column-sticky"
+  {% endif %}>
+  <div class="image-slider-container">
+    <div class="slider-wrapper">
+      <input
+        type="hidden"
+        class="media-variant"
+        data-variantid="{{ product.selected_or_first_available_variant.id }}" />
+      <div class="image-tabs-container"></div>
+      <div id="sliderImages" class="slider-images">
+        <!-- Featured Image as Default -->
+        <div id="additionalImages" class="additional-images"></div>
+        <div id="loadingIndicator" class="loading-image visible">
+          <!-- Show loading-image initially -->
+          <svg
+            focusable="false"
+            class="spinner-load"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg">
+            <circle
+              class="path"
+              fill="none"
+              stroke="black"
+              stroke-width="6"
+              cx="33"
+              cy="33"
+              r="30"></circle>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .image-slider-container {
+    position: relative;
+    max-width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+    gap: 20px;
+  }
+
+
+  .image-tabs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .image-tab {
+    width: 80px;
+    height: 70px;
+    border-radius: 5px;
+  }
+
+  .image-tab.active {
+    border: 2px solid #3e3e3e;
+    padding: 1px;
+  }
+
+  @media screen and (max-width: 750px) {
+    .slider-wrapper {
+      flex-direction: column-reverse;
+    }
+
+    .image-tabs-container {
+      flex-direction: row;
+      margin-inline: auto;
+      overflow-x: scroll;
+      width: 100%;
+    }
+
+    .image-tab {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
+  }
+
+  .slider-btn {
+    background: black;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 2;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .prev-button {
+    left: 10px;
+  }
+
+  .next-button {
+    right: 10px;
+  }
+
+  .slider-images {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .additional-images {
+    height: 100%;
+  }
+
+  .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+  }
+    .loading-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+  }
+
+  .loading-image.visible {
+    display: flex;
+  }
+
+  .spinner-load {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .image-slider-container {
+      height: 450px;
+      margin-bottom: 1rem;
+    }
+
+    .slider-btn {
+      font-size: 1.5rem;
+      padding: 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-slider-container {
+      height: 350px;
+      margin-bottom: 1rem;
+    }
+
+    .slider-btn {
+      font-size: 1.2rem;
+      padding: 6px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentIndex = 0;
+    const additionalImagesContainer = document.getElementById('additionalImages');
+    const imageTabsContainer = document.querySelector(".image-tabs-container");
+    const loadingIndicator = document.getElementById('loadingIndicator');
+
+    const product = {{ product | json }};
+    let currentVariantId = {{ product.selected_or_first_available_variant.id }};
+    let currentSku = '{{ product.selected_or_first_available_variant.sku }}';
+
+    function loadImagesForVariant(variantId) {
+      const variant = product.variants.find(variant => variant.id === variantId);
+      const featuredImage = variant.featured_image;
+      const otherImages = product.media.filter(image => {
+        return featuredImage.alt !== image.alt && image.alt?.includes(variant.sku) && !image.alt?.includes('delete')
+      });
+      const matchingImages = [featuredImage,...otherImages];
+      addImagesToGallery(matchingImages, variant.featured_image);
+    }
+
+    function addImagesToGallery(images, featuredImage) {
+      console.log(images);
+      loadingIndicator.classList.add('visible'); // Show loading indicator
+
+      // Clear existing images
+      additionalImagesContainer.innerHTML = '';
+      imageTabsContainer.innerHTML = '';
+
+      let imagesLoadedCount = 0;
+
+      images.forEach((image, index) => {
+        const img = document.createElement('img');
+        const imgTab = document.createElement('img');
+        img.src = image.src;
+        imgTab.src = `${image.src}&width=70&fit=crop`;
+        img.alt = `Image ${index + 1}`;
+        imgTab.alt = `Image ${index + 1}`;
+        img.className = 'slider-image';
+        img.style.display = index === 0 ? 'block' : 'none'; // Show the first image initially
+        imgTab.className = index === 0 ? 'image-tab active' : 'image-tab';
+        imgTab.setAttribute('data-index', index);
+
+        img.onload = () => {
+          imagesLoadedCount++;
+          if (imagesLoadedCount === images.length) {
+            loadingIndicator.classList.remove('visible'); // Hide loading indicator once all images are loaded
+          }
+        };
+
+        imgTab.addEventListener('click', function() {
+          navigateSlider(index);
+        });
+
+        imageTabsContainer.appendChild(imgTab);
+        additionalImagesContainer.appendChild(img);
+      });
+
+      resizeImages(); // Adjust image sizes
+    }
+
+    function navigateSlider(index) {
+      const imageTabs = document.querySelectorAll('.image-tab');
+      const allImages = document.querySelectorAll('.slider-image');
+
+      imageTabs.forEach((tab, idx) => {
+        if (idx === index) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+
+      allImages.forEach((img, idx) => {
+        img.style.display = idx === index ? 'block' : 'none';
+      });
+
+      currentIndex = index;
+    }
+
+    function resizeImages() {
+      const images = Array.from(document.querySelectorAll('.slider-image'));
+      const viewportWidth = window.innerWidth;
+
+      images.forEach((img) => {
+        const baseImage = img.src;
+        let newWidth;
+
+        if (viewportWidth <= 600) {
+          newWidth = 400;
+        } else if (viewportWidth <= 1200) {
+          newWidth = 800;
+        } else {
+          newWidth = 400;
+        }
+
+        img.src = `${baseImage}&width=${newWidth}`;
+      });
+    }
+
+    const variantSelector = document.querySelector('.media-variant');
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-variantid') {
+          const newVariantId = parseInt(variantSelector.getAttribute('data-variantid'), 10);
+          if (currentVariantId !== newVariantId) {
+            currentVariantId = newVariantId;
+            currentIndex = 0;
+            loadImagesForVariant(newVariantId);
+          }
+        }
+      });
+    });
+
+    observer.observe(variantSelector, { attributes: true });
+
+    // Initial load
+    loadImagesForVariant(currentVariantId);
+
+    window.addEventListener('resize', resizeImages);
+  });
+</script>

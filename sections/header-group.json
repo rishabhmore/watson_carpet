@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "View Our Locations",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-5614a675-483a-4a50-b7a3-437d7fa938d8",
+        "show_line_separator": false,
+        "show_social": false,
+        "content-text-align": "center",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "custom_css": [],
+      "settings": {
+        "logo_position": "top-center",
+        "nav_border_top": false,
+        "nav_border_bottom": false,
+        "nav_border_color": "#bcbcbd",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "dropdown_hover": true,
+        "sticky_header_type": "always",
+        "show_line_separator": true,
+        "new_tab": true,
+        "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
+        "menu_color_scheme": "scheme-2",
+        "menu_font_family": "sans-serif",
+        "menu_font_use_default_body": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "centered_menu": true,
+        "header_items_alignment": "center",
+        "enable_full_width": true,
+        "column_gap": 1,
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

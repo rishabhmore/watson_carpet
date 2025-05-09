@@ -1,0 +1,113 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_TNBL66": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_aLNtrg": {
+          "type": "heading",
+          "settings": {
+            "heading": "Showrooms",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aLNtrg"
+      ],
+      "settings": {
+        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
+        "image_overlay_opacity": 60,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "desktop_content_width": 0,
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "multirow_4rqpxz": {
+      "type": "multirow",
+      "blocks": {
+        "row_FpDwhy": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/xDSC_0231-1536x1024_jpg_pagespeed_ic_xY0TiXStTJ_webp.png",
+            "caption": "",
+            "heading": "Needham Showroom & Remnant Room",
+            "text": "<p>Monday & Friday: 10 – 5</p><p>Tuesday – Thursday: 10 – 6</p><p>Needham is now the home of our carpet remnantcollection! Browse our family friendly carpet andflooring options.</p><p>Book an appointment to meet with a dedicatedproject manager or stop in and browse freely.<br/></p>",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/services"
+          }
+        },
+        "row_hdExLV": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/DSC_0728-2-1024x683_jpg.png",
+            "caption": "",
+            "heading": "Newton Carpet Studio",
+            "text": "<p>Now open!</p><p>Monday to Friday: 10 – 5</p><p>Our most elevated offering yet. Conveniently located inNewton’s Home Design Place facing Needham Street.With a carefully and uniquely curated collection ofcarpet and rug styles, you’re bound to be inspired.</p><p>Book an appointment to meet with a dedicated projectmanager or stop in and browse!</p>",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/services"
+          }
+        },
+        "row_zAXbyq": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Samples_of_rugs_carpets_and_different_styles.png",
+            "caption": "",
+            "heading": "Stoughton Workroom & Sales",
+            "text": "<p>Monday to Friday: 9 – 3</p><p>Where the magic happens! Take a peek at ourcarpet workroom and browse samples of all ofour carpet and flooring options includingremnants and discounted carpet.</p><p>Book an appointment to meet with adedicated project manager or stop in andbrowse!</p>",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/services"
+          }
+        }
+      },
+      "block_order": [
+        "row_FpDwhy",
+        "row_hdExLV",
+        "row_zAXbyq"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-right",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_TNBL66",
+    "multirow_4rqpxz"
+  ]
+}

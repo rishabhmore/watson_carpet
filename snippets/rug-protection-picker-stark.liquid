@@ -1,0 +1,265 @@
+{% comment %}
+  Rug Protection Picker Snippet
+  This snippet adds a radio button picker for selecting rug protection, populated from the product's metafield.
+{% endcomment %}
+<div class="product__accordion accordion quick-add-hidden rug-protection-accordion container-rug-protection">
+  <summary>
+    <div class="summary__title pad-title">
+      {% render 'icon-accordion'
+        , icon: block.settings.icon %}
+      <h2 class="h4 accordion__title inline-richtext header-picker" id="rugProtectionSummaryTitle">
+        Rug protection
+      </h2>
+      <span class="tooltip" title="Machine serging">
+        {% render 'info-icon' %}
+        <span class="tooltip-text">
+          <p>Pristine by STARK Carpet &amp; Rug Protector provides stronger resistance against stains than any known product on the market.</p>
+          <p>The Pristine Advantage:</p>
+          <ul class="no-padding">
+            <li>Repels liquids, soil and oils</li>
+            <li>Extremely abrasion resistant – reduces wear and tear</li>
+            <li>Blocks ultraviolet rays that cause fading</li>
+            <li>Drastically improves cleanability</li>
+            <li>100% non-toxic and pet friendly</li>
+          </ul>
+        </span>
+      </span>
+      <span id="value-of-protection-type"></span>
+    </div>
+  </summary>
+  <div class="rug-protection-error rug-protection-error-hide" id="rug-protection-error">Rug protection field is required</div>
+  <input
+    type="hidden"
+    name="properties[Rug Protection]"
+    form="{{product_form_id}}">
+  <input
+    type="hidden"
+    name="properties[_protectionhandler]"
+    form="{{product_form_id}}">
+  <div class="accordion__content rte rug-protections-container" id="ProductAccordion">
+    <div class="rug-protection-picker">
+      {% if shop.metaobjects.rug_protection.values %}
+        {% assign rug_protections = shop.metaobjects.rug_protection.values | sort: "updated_at" %}
+        <div class="rug-protection-options">
+          {% for rug_protection in rug_protections %}
+            <label class="rug-protection-option" data-rug-protection-name="{{ rug_protection.type.value }}">
+              <input
+                type="radio"
+                value="{{ rug_protection.type.value | handleize }}"
+                class="rug-protection-radio"
+                form="{{product_form_id}}">
+              <span class="rug-protection-label">{{ rug_protection.type.value }}</span>
+              <div
+                class="rug-protection-price"
+                data-protection-price-value="{{ rug_protection.price.value }}"
+                data-calculated-protection-price=0>${{ rug_protection.price.value | round: 2 | append: '0' }}</div>
+            </label>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="center">No rug protections available</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<style>
+  /* Rug Protection Picker Styles */
+  .header-picker {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+
+  #value-of-protection-type {
+    font-weight: 200 !important;
+  }
+
+  .no-padding {
+    padding: 20px;
+  }
+
+  .rug-protections-container {
+    margin-top: 0.8rem;
+  }
+  /* Rug Pad Options Container */
+  .rug-protection-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Individual Rug Pad Option Styling */
+  .rug-protection-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 150px;
+  }
+
+  /* Active Option Styling - Black Border */
+  .rug-protection-option.active {
+    border: 2px solid black;
+  }
+
+  /* Hide radio buttons */
+  .rug-protection-radio {
+    display: none;
+  }
+
+  /* Label and Price Styling */
+  .rug-protection-label {
+    font-size: 12px;
+    /* Make type text smaller */
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .rug-protection-accordion {
+    border-bottom: none !important;
+  }
+
+  .rug-protection-missing {
+    color: red;
+  }
+
+  #openProtectionInfo {
+    text-decoration: underline;
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    color: #7b7a7a
+  }
+
+  .rug-protection-error {
+    margin-left: 30px;
+    font-size: 1.4rem;
+    color: red;
+  }
+
+  .rug-protection-error-hide {
+    display: none;
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async function () {
+    const rugProtectionRadios = document.querySelectorAll('.rug-protection-radio');
+    const value = document.getElementById('value-of-protection-type');
+    const rugProtectionInput = document.querySelector('input[name="properties[Rug Protection]"]'); // Hidden input for Rug Pad
+    const rugProtectionHandler = document.querySelector('input[name="properties[_protectionhandler]"]'); // Hidden input for Rug Pad handler
+    const rugProtectionSummary = document.getElementById('rugProtectionSummaryTitle');
+    var currency = "{{shop.currency}}"; // get the currency
+    var currencySymbol = "{{ 25 | money | slice: 0, 1 }}" // Reference to price item
+    let lastSelectedRadio = null;
+   
+    // Track the last selected radio
+    rugProtectionRadios.forEach(function(radio) {
+        radio.addEventListener('click',async function(event) {            
+            const shapePickerError = document.getElementById('shape-picker-error');
+
+                // Check if the error element does not have the required class
+                if (!shapePickerError.classList.contains('shape-picker-error-hide')) {
+                    return; // Exit the event handler early
+                }           
+            const priceItem = document.querySelector('.price-item');
+            const selectedOption = this.closest('.rug-protection-option');
+            const selectedRugProtectionName = selectedOption.dataset.rugProtectionName;
+            const selectedRugProtectionHandler = this.value;
+            const prevPrice = parseFloat(priceItem.getAttribute('data-dimension-modified-price')) || 0;
+            // Current rug protection price calculated using rug area
+            const dataRugProtectionPrice = parseFloat(priceItem.getAttribute('data-rug-protection-price')) || 0;
+            // Current rug pad price calculated using rug area
+            const dataRugPadPrice = parseFloat(priceItem.getAttribute('data-rug-pad-price')) || 0;
+            console.log(`data rug protection price is ${dataRugProtectionPrice}`);
+            console.log(`data rug pad price is ${dataRugPadPrice}`);
+            document.getElementById('rug-protection-error').classList.add('rug-protection-error-hide');
+
+            // Get the modified price from the data-modified-price attribute
+            const existingRugProtectionPrice = parseFloat(selectedOption.querySelector('.rug-protection-price').getAttribute('data-calculated-protection-price')) || 0;
+            const priceElement = selectedOption.querySelector('.rug-protection-price');
+
+            if (lastSelectedRadio === this) {
+              rugPayload.isPristine = false;
+            
+                // Deselecting the option
+                this.checked = false; // Uncheck the radio
+                selectedOption.classList.remove('active'); // Remove active class
+                const {totalCarpetCharge} = await PriceStore.getPrice(rugPayload.SKU,rugPayload.widthInches,rugPayload.LengthInches,rugPayload.isPristine , rugPayload.isPadding)
+                const {totalPristine} = await PriceStore.getPrice(rugPayload.SKU,rugPayload.widthInches,rugPayload.LengthInches,true , rugPayload.isPadding)
+                value.textContent = ''; // Reset the title
+                rugProtectionInput.value = null; // Clear hidden input value
+                rugProtectionHandler.value = "";
+                lastSelectedRadio = null; // Clear last selected radio
+                priceItem.setAttribute('data-rug-protection-price', 0);
+                const basicPadPrice = priceElement.getAttribute("data-protection-price-value")
+                
+                 if(this.value !== "none") { 
+                updatePriceForRugPad(priceElement,totalPristine);
+                }else{
+                  updatePriceForRugPad(priceElement,basicPadPrice);
+                }                
+                updatePriceItem(totalCarpetCharge); // Reset price item when no selection
+            } else {
+              if(this.value !== "none") { 
+            rugPayload.isPristine = true;
+            }else{
+              rugPayload.isPristine = false;
+            }
+
+            
+                // Update active class for the new selection
+                document.querySelectorAll('.rug-protection-option').forEach(function(option) {
+                    option.classList.remove('active');
+                });
+                // rugProtectionSummary.classList.remove('rug-protection-missing');
+
+                selectedOption.classList.add('active'); // Add active class
+                 const {ok,totalCarpetCharge,totalPristine} = await PriceStore.getPrice(rugPayload.SKU,rugPayload.widthInches,rugPayload.LengthInches,rugPayload.isPristine , rugPayload.isPadding)
+                updatePriceForRugPad(priceElement,totalPristine);
+                value.textContent = `: ${selectedRugProtectionName}`; // Update title
+                rugProtectionInput.value = selectedRugProtectionName;
+                rugProtectionHandler.value = selectedRugProtectionHandler; // Set the hidden input value to the selected rug pad
+                lastSelectedRadio = this; // Store the currently selected radio
+
+                // Update the price item with the total price
+                const totalPrice = prevPrice + dataRugPadPrice + existingRugProtectionPrice;
+                priceItem.setAttribute('data-rug-protection-price', existingRugProtectionPrice.toFixed(2));
+                updatePriceItem(totalCarpetCharge); // Update the price item
+            }
+        });
+    });
+      
+
+    // Function to update the price item with formatted price
+    function updatePriceItem(totalPrice) {
+      const roundedPrice = totalPrice;
+      const priceItem = document.querySelector('.price-item');
+        if (priceItem) {
+           const formattedPrice =new Intl.NumberFormat('en-US', {
+               style: 'decimal',
+               minimumFractionDigits: 2,
+               maximumFractionDigits: 2
+              }).format(roundedPrice);
+            priceItem.innerHTML = `${currencySymbol}${formattedPrice}`;
+            priceItem.setAttribute('data-modified-price', totalPrice); // Set modified price attribute
+        }
+    }
+    function updatePriceForRugPad(elem,pristinePrice){
+      const newPrice = parseFloat(pristinePrice);
+        const formattedNewPrice =new Intl.NumberFormat('en-US', {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(newPrice);
+  elem.textContent = `$${formattedNewPrice}`;
+    }
+  });
+</script>

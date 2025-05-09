@@ -1,0 +1,131 @@
+<div class="product__accordion accordion quick-add-hidden edge-style-accordion">
+  <summary>
+    <div class="summary__title edge-title">
+      <h2 class="h4 accordion__title inline-richtext header-picker">
+        Edge style
+      </h2>
+      <span class="tooltip" title="Machine serging">
+        {% render 'info-icon' %}
+        <span class="tooltip-text">
+          <div class="variant-image-container">
+            <img
+              id="variant-featured-image"
+              src="{{ product.selected_or_first_available_variant.featured_media.preview_image |image_url: width: 200 }}"
+              alt="Default Image"
+              class="featured-image"
+              width="200"
+              height="200" />
+          </div>
+        </span>
+      </span>
+      :<span class="single-selected-style">Machine Serging</span>
+    </div>
+  </summary>
+  <input
+    type="hidden"
+    name="properties[Edge style]"
+    class="edge-style-select"
+    form="{{ product_form_id }}"
+    value="Machine Serging">
+</div>
+
+
+<style>
+  .edge-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    padding-left: 30px;
+  }
+  .header-picker {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .tooltip {
+    position: relative;
+    cursor: pointer;
+    font-weight: lighter;
+    margin-top: 4px;
+  }
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    width: 240px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: small;
+    line-height: 1.3;
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  .variant-image-container {
+    margin-top: 5px;
+    text-align: center;
+  }
+  .featured-image {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantSelector = document.querySelector('.media-variant'); // Replace with your variant selector
+    const featuredImageElement = document.getElementById('variant-featured-image');
+    const defaultImage = '{{ "default_serg.jpg" | asset_url }}'; // Replace with your fallback image URL
+
+    // Function to check and load the featured image
+    function loadImagesForVariant(variantId) {
+      const selectedVariant = {{ product.variants | json }}.find(variant => variant.id === variantId);
+
+      if (selectedVariant && selectedVariant.featured_image) {
+        const featuredImage = selectedVariant.featured_image;
+        const imageAlt = featuredImage.alt || '';
+        console.log(imageAlt);
+        // Check if the alt ends with "_SERG"
+        if (imageAlt.endsWith('_SERG')) {
+          featuredImageElement.src = featuredImage.src;
+          featuredImageElement.alt = featuredImage.alt;
+        } else {
+          // Use fallback image
+          featuredImageElement.src = defaultImage;
+          featuredImageElement.alt = 'Fallback Image';
+        }
+      } else {
+        // Fallback to default if no featured image is found
+        featuredImageElement.src = defaultImage;
+        featuredImageElement.alt = 'Fallback Image';
+      }
+    }
+
+    // Observer to monitor variant ID changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-variantid') {
+          const newVariantId = parseInt(variantSelector.getAttribute('data-variantid'), 10);
+          loadImagesForVariant(newVariantId);
+        }
+      });
+    });
+
+    if (variantSelector) {
+      observer.observe(variantSelector, { attributes: true });
+    }
+
+    // Load initial image for the first variant
+    const initialVariantId = parseInt(variantSelector.getAttribute('data-variantid'), 10);
+    loadImagesForVariant(initialVariantId);
+  });
+</script>

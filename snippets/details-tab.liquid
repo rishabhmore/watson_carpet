@@ -1,0 +1,109 @@
+<div class="tabs-container">
+  <div class="tabs">
+    <button class="tab active" data-tab="details">PRODUCT DETAILS</button>
+    <button class="tab" data-tab="disclaimer">DISCLAIMER</button>
+  </div>
+  <div class="tab-content">
+    <div class="content active" id="details">
+      {% render 'product-description' %}
+    </div>
+    <div class="content" id="disclaimer">
+      <p>We do our best to accurately depict all products through proper imagery and product information through our website. Every computer monitor displays color differently, we cannot be responsible for variations between the actual product color and how it is displayed on your screen. Descriptions of merchandise, including colors or shades, textures, and other features are provided by the manufacturer; STARK assumes no liability whatsoever for the description, for variance, including in colors or textures, minor imperfections, and/or for a product not meeting with customer satisfaction, absent a manufacturer-verified defect. Please note: There may be a variation and imperfection in weave, fiber size, color, shade and overall rug size (up to 5% in length and width) are normal characteristics and are not considered a manufacturing defect.                   
+The Delivery Team is unable to move pianos, pool tables, glassware, valuable/fragile items or any item over 175 pounds during White Glove Premier deliveries.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Tabs container */
+  .tabs-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+
+  }
+
+  /* Tabs styling */
+  .tabs {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .tab {
+    padding: 15px 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+    background: none;
+    border: none;
+    position: relative;
+    transition: color 0.3s ease;
+  
+  }
+
+  .tab.active {
+    color: #000;
+    border: none;
+    font-weight: bold;
+  }
+
+  /* Active tab bottom border effect using ::after */
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: #000;
+    transition: all 0.3s ease;
+  }
+
+  .tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+
+  /* Tab content */
+  .tab-content {
+    padding: 20px;
+  }
+
+  .content {
+    display: none;
+  }
+
+  .content.active {
+    display: block;
+    border: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const contents = document.querySelectorAll(".content");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        // Remove active class from all tabs and content
+        tabs.forEach((tab) => tab.classList.remove("active"));
+        contents.forEach((content) => content.classList.remove("active"));
+
+        // Add active class to the clicked tab and its content
+        tab.classList.add("active");
+        const tabId = tab.getAttribute("data-tab");
+        document.getElementById(tabId).classList.add("active");
+      });
+    });
+  });
+</script>

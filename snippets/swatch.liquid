@@ -1,0 +1,86 @@
+{% comment %}
+  Renders a swatch component.
+  Accepts:
+  - swatch: {Object} a swatch object
+  - shape: {String} swatch shape. Accepts 'square', defaults to circle.
+  - swatchImg: {String}
+  - variant_id: variant_id
+  Usage:
+  {% render 'swatch',
+    swatch: value.swatch,
+    shape: 'square',
+    swatchImg: swatchImg,
+    variant_id: variant_id
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign swatch_value = null
+  if swatch.image
+    assign image_url = swatch.image | image_url: width: 50
+    assign swatch_value = 'url(' | append: image_url | append: ')'
+    assign swatch_focal_point = swatch.image.presentation.focal_point
+  elsif swatchImg
+    assign swatch_value = 'url(' | append: swatchImg | append: ')'
+  elsif swatch.color
+    assign swatch_value = 'rgb(' | append: swatch.color.rgb | append: ')'
+  endif
+-%}
+<span
+  {% if swatch_value %}
+    class="swatch{% if shape == 'square' %} swatch--square{% endif %}"
+    data-swatch-image="{{ swatchImg }}"
+    data-variant-id="{{ variant_id }}"
+    style="--swatch--background: {{ swatch_value }};{% if swatch_focal_point %} --swatch-focal-point: {{ swatch_focal_point }};{% endif %}"
+  {% else %}
+    class="swatch swatch--unavailable{% if shape == 'square' %} swatch--square{% endif %}"
+  {% endif %}
+></span>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all swatch elements
+   const swatches = document.querySelectorAll('.swatch');
+
+    swatches.forEach((swatch) => {
+      // Listen for a click event on each swatch
+      swatch.addEventListener('click', function () {
+   
+        // Get the swatch image URL and variant ID from the data attributes
+        const swatchImageUrl = this.getAttribute('data-swatch-image');
+        const variantId = this.getAttribute('data-variant-id');
+        // Find the closest product card
+        const card = this.closest('.card');
+        if(card){
+        const cardImage = card.querySelector('.card__media img');
+        const cardLink = card.querySelector('.card-link');
+        const cardImgLink = card.querySelector('.card-img-link');
+
+        if (swatchImageUrl && cardImage) {
+          // Update the srcset attribute of the card image
+          cardImage.srcset = `
+            ${swatchImageUrl}?width=165 165w,
+            ${swatchImageUrl}?width=360 360w,
+            ${swatchImageUrl}?width=533 533w,
+            ${swatchImageUrl}?width=720 720w,
+            ${swatchImageUrl}?width=940 940w,
+            ${swatchImageUrl}?width=1066 1066w
+          `;
+
+          // Optionally update the src attribute if needed
+          cardImage.src = `${swatchImageUrl}?width=533`;
+        }
+
+        if (variantId && cardLink && cardImgLink) {
+          // Update the href attribute of the card link
+          const baseUrl = cardLink.href.split('?')[0]; // Remove any existing query parameters
+          cardLink.href = `${baseUrl}?variant=${variantId}`;
+          cardImgLink.href = `${baseUrl}?variant=${variantId}`;        
+}
+        }
+      });
+    });
+
+  });
+
+</script>

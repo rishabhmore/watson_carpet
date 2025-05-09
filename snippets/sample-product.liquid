@@ -1,0 +1,316 @@
+{% comment %}
+  Renders sample product
+
+  Accepts:
+  - sample_product: {Object} sample product object.
+  - sample_base_url {String} original product url.
+  Usage:
+  {% render 'sample-product', sample_product: product %}
+{% endcomment %}
+
+{% assign featured_media = sample_product.selected_or_first_available_variant.featured_media %}
+{% assign variants = sample_product.variants %}
+{% assign sample_product_form_id = sample_product.selected_or_first_available_variant.id %}
+
+
+<button class="button button--full-width order-sample-btn" id="order-modal">Order a Rug Sample</button>
+
+
+<div class="drawer-overlay" id="drawer-overlay">
+  <div class="drawer-container" id="drawer">
+    <!-- Drawer Content -->
+    <div class="drawer-close-container">
+      <button class="drawer-close-btn">x</button>
+    </div>
+    <div class="drawer-content">
+      <!-- Product Image -->
+      <div class="product-img">
+        <img
+          id="featured-image"
+          src="{{ featured_media.preview_image | image_url: width: 416 }}"
+          alt="{{ featured_media.alt | escape }}"
+          loading="lazy"
+          sizes="{{ sizes }}"
+          class="sample-featured-img"
+          id="{{ thumbnail_id }}"
+          width="416"
+          height="auto" />
+      </div>
+      <!-- Product Title -->
+      <h2 id="sample-product-title">{{ sample_product.title | downcase }}</h2>
+      <span class="sample-product-price">${{sample_product.selected_or_first_available_variant.price | money_without_currency | plus: 0.5 | floor}}.00</span>
+      <!-- Variant Color -->
+      <p class="variant-property">Color:
+        <span id="variant-name">{{ sample_product.selected_or_first_available_variant.title }}</span>
+      </p>
+      <!-- Variant Swatches -->
+      <div class="variant-swatches" id="variant-swatches">
+        {% for variant in variants %}
+          <div
+            class="variant-swatch{% if forloop.first %} selected{% endif %}"
+            data-variant-index="{{ forloop.index0 }}"
+            data-variant-id="{{variant.id}}"
+            data-variant-name="{{ variant.title }}"
+            data-variant-image="{{ variant.featured_media.preview_image | image_url: width: 416 }}"
+            style="background-image: url('{{ variant.featured_media.preview_image | image_url: width: 50 }}');"
+            data-variant-color="{{ variant.title }}"></div>
+        {% endfor %}
+      </div>
+
+      <p class="variant-property">Size:
+        <span id="variant-size">Sample 9" X 9"</span>
+      </p>
+      <product-form class="product-form">
+        {%- form 'product'
+          , sample_product
+          , id: sample_product_form_id
+          , class: 'form'
+          , novalidate: 'novalidate'
+          , data-type: 'add-to-cart-form'
+        -%}
+          <input
+            type="hidden"
+            name="id"
+            class="sample-variant-id"
+            value="{{sample_product_form_id}}"
+            form="{{sample_product_form_id}}" />
+          <input
+            type="hidden"
+            name="properties[Edge Style]"
+            value="Machine Serging"
+            form="{{sample_product_form_id}}" />
+          <input
+            type="hidden"
+            name="properties[Size]"
+            value='Sample 9" X 9"'
+            form="{{sample_product_form_id}}" />
+            <input type="hidden" name="properties[_parenturl]" id="line-item-parent-url" form="{{sample_product_form_id}}" value="{{sample_base_url}}">
+          <input
+            type="hidden"
+            name="quantity"
+            value=1
+            form="{{sample_product_form_id}}" />
+          <button
+            type="submit"
+            name="add"
+            class="button button--full-width">Add to cart
+            <div class="loading__spinner hidden">
+             <svg
+               aria-hidden="true"
+               focusable="false"
+               class="spinner"
+               viewBox="0 0 66 66"
+               xmlns="http://www.w3.org/2000/svg"
+             >
+               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+             </svg>
+            </div>
+          </button>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </div>
+</div>
+
+
+<style>
+
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: flex-end;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out,linear 0.3s;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out,linear 0s;
+}
+
+.drawer-container {
+  background: #fff;
+  width: 35%;
+  height: 100vh;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.drawer-container.active {
+  transform: translateX(0);
+}
+
+.drawer-close-container {
+  width: 100%;
+  margin-top: 40px;
+  height: 60px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.drawer-close-btn {
+  height: 40px;
+  width: 40px;
+  border: none;
+  outline: none;
+  padding: 5px 5px;
+  font-size: larger;
+  background-color: #eeeded;
+  cursor: pointer;
+  color:black;
+}
+
+.drawer-close-btn:hover {
+  cursor: pointer;
+}
+
+.drawer-content {
+  padding: 10px 20px;
+}
+
+#sample-product-title {
+  font-size: 24px;
+  text-transform: capitalize;
+  margin: 15px 0px;
+}
+
+.sample-product-price {
+  font-size: 20px;
+}
+
+.variant-swatches {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.variant-property {
+  text-transform: uppercase;
+}
+
+.variant-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  background-size: cover;
+  background-position: center;
+  transition: border 0.2s ease;
+  border:1px solid black;
+  display: block !important;
+}
+
+.variant-swatch.selected {
+  border: 3px solid #000;
+}
+
+.product-img {
+  width: 60%;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.sample-featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loading__spinner {
+  position: relative;
+  z-index: 1;
+  width: 1.6rem;
+}
+
+@media (max-width: 768px) {
+  .drawer-container {
+    width: 90%;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const orderButton = document.getElementById('order-modal');
+  const drawerOverlay = document.getElementById('drawer-overlay');
+  const drawer = document.getElementById('drawer');
+  const body = document.body;
+  const closeDrawerBtn = document.querySelector('.drawer-close-btn');
+  const variantSwatches = document.querySelectorAll('.variant-swatch');
+  const featuredImage = document.getElementById('featured-image');
+  const variantName = document.getElementById('variant-name');
+  const variantIdInput = document.querySelector(".sample-variant-id");
+  const cartNotification = document.querySelector('.cart-notification');
+
+  // Function to open the drawer
+  function openDrawer() {
+    drawerOverlay.classList.add('active');
+    drawer.classList.add('active');
+    body.classList.add('no-scroll');
+  }
+
+  // Function to close the drawer
+  function closeDrawer() {
+    drawerOverlay.classList.remove('active');
+    drawer.classList.remove('active');
+    body.classList.remove('no-scroll');
+  }
+
+  // Open the drawer when the order sample button is clicked
+  orderButton.addEventListener('click', openDrawer);
+
+  // Close the drawer when the close button is clicked
+  closeDrawerBtn.addEventListener('click', closeDrawer);
+
+  // Close the drawer when clicking outside the drawer
+  drawerOverlay.addEventListener('click', (event) => {
+    if (event.target === drawerOverlay) closeDrawer();
+  });
+
+  // Handle variant swatch clicks
+  variantSwatches.forEach((swatch) => {
+    swatch.addEventListener('click', () => {
+      variantSwatches.forEach((sw) => sw.classList.remove('selected'));
+      swatch.classList.add('selected');
+      featuredImage.src = swatch.getAttribute('data-variant-image');
+      variantName.textContent = swatch.getAttribute('data-variant-color');
+      variantIdInput.value = swatch.getAttribute('data-variant-id');
+    });
+  });
+
+  // Cart Notification Observer - close drawer if cart notification is active
+  function checkCartNotification() {
+    if (cartNotification && cartNotification.classList.contains('active')) {
+      closeDrawer();
+    }
+  }
+
+  const observer = new MutationObserver(() => {
+    checkCartNotification();
+  });
+
+  observer.observe(cartNotification, {
+    attributes: true,
+    attributeFilter: ['class'], // Observe changes to the class attribute
+  });
+});
+</script>

@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "<strong>Contact Us</strong>",
+        "subheading": "We'd love to hear from you. Our team is here to help.",
+        "map_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2377.104114807357!2d-2.9633923235886592!3d53.43084666839799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487b21654b02538b%3A0x84576a57e21973ff!2sAnfield!5e0!3m2!1sen!2sin!4v1724836529359!5m2!1sen!2sin",
+        "heading_size": "h0",
+        "subheading_size": "h3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_info": {
+      "type": "contact-info-container",
+      "settings": {
+        "address_title": "Address",
+        "address_content": "<p>Your address goes here.</p>",
+        "email_list": "example@example.com,info@example.com",
+        "phone_list": "+1234567890,+0987654321",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_ExCctA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RW3rWJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_R8yAc3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_XrLjhA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RW3rWJ",
+        "text_R8yAc3",
+        "button_XrLjhA"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "form",
+    "contact_info",
+    "rich_text_ExCctA"
+  ]
+}

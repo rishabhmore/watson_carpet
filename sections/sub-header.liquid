@@ -1,0 +1,157 @@
+{% schema %}
+{
+  "name": "Sub Header",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_link",
+      "name": "Collection Link",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Header",
+      "blocks": [
+        { "type": "collection_link" },
+        { "type": "collection_link" },
+        { "type": "collection_link" },
+        { "type": "collection_link" },
+        { "type": "collection_link" },
+        { "type": "collection_link" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div
+  class="sub-header {% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  style="background-color: {{ section.settings.color_scheme }} "
+>
+  <div class="container">
+    <div class="sub-header-links">
+      {% for block in section.blocks %}
+        {% if block.settings.collection %}
+          <a
+            href="{{ block.settings.collection.url }}"
+            class="{% if block.settings.collection.url == request.path %}active{% endif %}"
+          >
+            {{ block.settings.collection.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="sub-header-dropdown">
+      <select id="collection-dropdown">
+        <option value="">Select a Collection</option>
+        {% for block in section.blocks %}
+          {% if block.settings.collection %}
+            <option value="{{ block.settings.collection.url }}">
+              {{ block.settings.collection.title }}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sub-header {
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+  }
+
+  .sub-header-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between links */
+  }
+
+  .sub-header-links a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: light;
+  }
+
+  .sub-header-links a.active {
+    font-weight: bold; /* Active link styling */
+  }
+
+  .sub-header-links a:hover {
+    text-decoration: underline;
+  }
+
+  .sub-header-dropdown {
+    display: none; /* Hide by default on larger screens */
+  }
+
+  @media (max-width: 767px) {
+    .sub-header-links {
+      display: none; /* Hide links on mobile */
+    }
+
+    .sub-header-dropdown {
+      display: block; /* Show dropdown on mobile */
+    }
+  }
+
+  @media (min-width: 768px) {
+    .sub-header-links {
+      display: flex;
+    }
+
+    .sub-header-dropdown {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('collection-dropdown').addEventListener('change', function () {
+    if (this.value) {
+      window.location.href = this.value;
+    }
+  });
+</script>

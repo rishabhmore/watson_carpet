@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_tYXfp9": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_UbfpFA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Services",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UbfpFA"
+      ],
+      "custom_css": [
+        "h2 {color: rgba(var(--color-button));}"
+      ],
+      "settings": {
+        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
+        "image_overlay_opacity": 60,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "desktop_content_width": 0,
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_KKBadE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_R8ymdz": {
+          "type": "heading",
+          "settings": {
+            "heading": "To transform your house into  a home",
+            "heading_size": "h2"
+          }
+        },
+        "button_tE8yJC": {
+          "type": "button",
+          "settings": {
+            "button_label": "GET CUSTOM QUOTE",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "SHOP ONLINE",
+            "button_link_2": "shopify://collections/custom-area-rugs-1",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R8ymdz",
+        "button_tE8yJC"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_Dz6Yfe": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3MJ37w": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image.png",
+            "title": "Custom Area Rugs",
+            "text": "<p>Custom shaped area rugs & runners designed to fit any space in your home</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rTRft8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "title": "Stair Runners",
+            "text": "<p>Custom shaped area rugs & runners designed to fit any space in your home</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3Dfq8t": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_2_74e03202-dda1-4d7c-b737-061abd8da12a.png",
+            "title": "Carpet Installation",
+            "text": "<p>Broadloom carpet & carpet tile installation for residential & commercial spaces</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_t9JkmP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_3.png",
+            "title": "Alternative Flooring",
+            "text": "<p>Broadloom carpet & carpet tile installation for residential & commercial spaces</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_AF3UQj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_4.png",
+            "title": "Carpet Sales",
+            "text": "<p>Shop our collection of ready-made area rugs and runners</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PGaNeD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_5.png",
+            "title": "Repairs & Cleaning",
+            "text": "<p>Repair and clean rugs and upholstery, with in-home cleanings available.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_3MJ37w",
+        "column_rTRft8",
+        "column_3Dfq8t",
+        "column_t9JkmP",
+        "column_AF3UQj",
+        "column_PGaNeD"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_tYXfp9",
+    "rich_text_KKBadE",
+    "multicolumn_Dz6Yfe"
+  ]
+}

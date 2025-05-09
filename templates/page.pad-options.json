@@ -1,0 +1,477 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_79dJCt": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_6Dg7e3": {
+          "type": "caption",
+          "settings": {
+            "caption": "Protect your floors and extend the life of your rugs",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_8VATtU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Pad Options</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button_kjbQje": {
+          "type": "button",
+          "settings": {
+            "button_label": "Make Appointment",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true
+          }
+        },
+        "button_GU3NxM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Online",
+            "button_link": "shopify://collections",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_6Dg7e3",
+        "heading_8VATtU",
+        "button_kjbQje",
+        "button_GU3NxM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Background_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_3cB8K9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ee8M9Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pad/Underlayment options",
+            "heading_size": "h1"
+          }
+        },
+        "text_TUn8JF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The right carpet pad can make all the difference in how your carpet looks, feels, and performs over time. At Carpet Workroom, we offer a wide variety of carpet pad options to suit your specific needs and preferences. In addition to our standard carpet pads, we also offer specialized options for stair runners and custom rugs. Our stair runner pads are designed to fit the unique shape and size of your staircase, providing extra grip and cushioning to prevent slips and falls.Carpet padding is an essential component of any carpet installation, and the choice of carpet pad material can greatly affect the performance of your flooring. Foam and felt are two popular types of carpet padding, each with their own unique advantages. Foam rug pads provide cushioning, insulation, soundproofing, and moisture resistance, while felt rug pads offer stability, grip, durability and are hypoallergenic.Carpet padding is important for stair runners and area rugs because it provides a cushioned layer that absorbs impact and foot traffic, reducing wear and tear on the carpet fibers. It also helps to stabilize the carpet, preventing slips and falls, and provides insulation and noise reduction. Our custom rug pads are made to fit your specific rug size and shape, offering the perfect base for your area rug while protecting your floors and enhancing comfort.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ee8M9Q",
+        "text_TUn8JF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_G46zpR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UaMJgW": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Waffle Non-skid Pad</strong>",
+            "text": "<ul><li>Flat mesh</li><li>12′ wide</li><li>Best grip with double sided gripping</li><li>Best used with entry rugs, runners, and rugs that require door clearance</li><li><a href=\"/collections/custom-area-rugs-1\" title=\"Custom Area Rugs\">Purchase today</a> from our sister site – NE Rug Co</li></ul>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pGbtxf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pUHrdn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_UaMJgW",
+        "column_pGbtxf",
+        "column_pUHrdn"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_XK3UQG": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_neFg9n": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_8hiGiX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_j6XVAx": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Felt Non-skid Pad</strong>",
+            "text": "<ul><li>Flat mesh</li><li>12′ wide</li><li>Best grip with double sided gripping</li><li>Best used with entry rugs, runners, and rugs that require door clearance</li><li><a href=\"/collections/custom-area-rugs-1\" title=\"Custom Area Rugs\">Purchase today</a> from our sister site – NE Rug Co</li></ul>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_neFg9n",
+        "column_8hiGiX",
+        "column_j6XVAx"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_j8rxDF": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_kemrjR": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>40 oz. Felt Pad</strong>",
+            "text": "<ul><li>6′ wide</li><li>Default pad for stair runners and wall to wall installations</li></ul>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_96RYCj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4qJACQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_kemrjR",
+        "column_96RYCj",
+        "column_4qJACQ"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_Q9kkhr": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_cjrzJX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w6BBTf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7xKEAh": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>32 oz. Felt Pad</strong>",
+            "text": "<ul><li>12′ wide</li><li>Best used for large area rugs with furniture on top</li><li><a href=\"/collections/custom-area-rugs-1\" title=\"Custom Area Rugs\">Purchase today</a> from our sister site – NE Rug Co</li></ul>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_cjrzJX",
+        "column_w6BBTf",
+        "column_7xKEAh"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_KBLk8L": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_myGmDF": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Scotchgard Foam Pad</strong>",
+            "text": "<ul><li>6′ wide</li><li>Best served for use on wall to wall projects in low traffic areas (ie. playrooms and bedrooms) – not recommended for high traffic areas</li><li>Hypoallergenic</li><li>More expensive than both felt offerings, but lessexpensive than both non-skid offerings</li></ul>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_jByNFe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hiJx3G": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_myGmDF",
+        "column_jByNFe",
+        "column_hiJx3G"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_gGMWE4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_jbVpAQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why do I need a carpet pad?",
+            "icon": "none",
+            "row_content": "<p>A carpet pad serves multiple purposes. Firstly, it offers additional cushioning underfoot, enhancing the comfort level of the carpet.Secondly, it prevents the carpet from wearing out prematurely by absorbing the impact of foot traffic. Thirdly, it provides thermal andsound insulation, reducing noise levels and helping to regulate the temperature inside your home.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_988JRJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the different types of carpet pads available?",
+            "icon": "none",
+            "row_content": "<p>There are several types of carpet pads available, including foam, rubber and felt. Foam pads are the most common and affordable type ofcarpet pad, while fiber pads are made of natural or synthetic fibers and offer good cushioning and insulation. Rubber pads are durable andexcellent at reducing noise, and felt pads are made of recycled materials and provide good support.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NPG76Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the best carpet pad for my carpet?",
+            "icon": "none",
+            "row_content": "<p>The best carpet pad for your carpet depends on the type of carpet you have, your budget, and your specific needs. Generally, a dense, firm pad is recommended for low-pile carpets, while a thicker, softer pad is better for high-pile or plush carpets. You should also consider the density, thickness, and material of the pad to ensure it meets your requirements.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qzfHCn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How thick should my carpet pad be?",
+            "icon": "none",
+            "row_content": "<p>The thickness of your carpet pad should depend on the type of carpet you have and the level of cushioning and support you require.Typically, a pad thickness of 1/4 inch to 1/2 inch is recommended for most residential carpets. However, some high-end carpets mayrequire thicker pads.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_BqCgLA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I reuse my old carpet pad when installing new carpet?",
+            "icon": "none",
+            "row_content": "<p>It is not recommended to reuse your old carpet pad when installing new carpet. Old pads may have accumulated dirt, dust, and otherdebris, which can affect the performance and lifespan of the new carpet. Additionally, old pads may have lost their cushioning and supportproperties over time, so it’s best to invest in a new pad when replacing your carpet.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NEmYKX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should I replace my carpet pag?",
+            "icon": "none",
+            "row_content": "<p>The frequency of replacing your carpet pad depends on several factors, such as the type of pad, the level of foot traffic, and the quality ofthe pad. Generally, you should replace your carpet pad every 7 to 10 years. However, if you notice signs of wear and tear, such as flatteningor compression, you should consider replacing your pad sooner.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_jbVpAQ",
+        "collapsible_row_988JRJ",
+        "collapsible_row_NPG76Q",
+        "collapsible_row_qzfHCn",
+        "collapsible_row_BqCgLA",
+        "collapsible_row_NEmYKX"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "<strong>FAQ's</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-2",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_79dJCt",
+    "rich_text_3cB8K9",
+    "multicolumn_G46zpR",
+    "multicolumn_XK3UQG",
+    "multicolumn_j8rxDF",
+    "multicolumn_Q9kkhr",
+    "multicolumn_KBLk8L",
+    "collapsible_content_gGMWE4"
+  ]
+}

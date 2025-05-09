@@ -1,0 +1,145 @@
+{% comment %}
+  Renders a standard dropdown style menu for the header.
+
+  Usage:
+  {% render 'header-dropdown-menu', new_tab:false %}
+{% endcomment %}
+
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <li>
+        {% assign is_external = false %}
+        {% if link.url contains 'http' or link.url contains 'https' %}
+          {% assign is_external = true %}
+        {% endif %}
+
+        {%- if link.links != blank -%}
+          <header-menu>
+            <details
+              id="Details-HeaderMenu-{{ forloop.index }}"
+              data-dropdown-hover="{{ section.settings.dropdown_hover }}"
+            >
+              <summary
+                id="HeaderMenu-{{ link.handle }}"
+                class="header__menu-item list-menu__item link focus-inset"
+              >
+                <a
+                  href="{{ link.url }}"
+                  {% if new_tab and is_external %}
+                    rel="noopener" target="_blank"
+                  {% endif %}
+                >
+                  <span
+                    {%- if link.child_active %}
+                      class="header__active-menu-item"
+                    {% endif %}
+                  >
+                    {{- link.title | escape -}}
+                  </span></a
+                >
+                {% render 'icon-caret' %}
+              </summary>
+              <ul
+                id="HeaderMenu-MenuList-{{ forloop.index }}"
+                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                role="list"
+                tabindex="-1"
+              >
+                <!-- dropdown menu items -->
+                {%- for childlink in link.links -%}
+                  <li>
+                    {% assign is_external = false %}
+                    {% if childlink.url contains 'http' or childlink.url contains 'https' %}
+                      {% assign is_external = true %}
+                    {% endif %}
+
+                    {%- if childlink.links == blank -%}
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                        {% if new_tab and is_external %}
+                          rel="noopener" target="_blank"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                    {%- else -%}
+                      <details
+                        id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        data-dropdown-hover="{{ section.settings.dropdown_hover }}"
+                      >
+                        <summary
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                        >
+                          <span>{{ childlink.title | escape }}</span>
+                          {% render 'icon-arrow' %}
+                        </summary>
+                        <ul
+                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                          class="header__submenu list-menu motion-reduce"
+                        >
+                          {%- for grandchildlink in childlink.links -%}
+                            {% assign is_external = false %}
+                            {% if grandchildlink.url contains 'http' or grandchildlink.url contains 'https' %}
+                              {% assign is_external = true %}
+                            {% endif %}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                                {% if new_tab and is_external %}
+                                  rel="noopener" target="_blank"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </details>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </details>
+          </header-menu>
+
+        {%- else -%}
+          {% assign is_external = false %}
+          {% if link.url contains 'http' or link.url contains 'https' %}
+            {% assign is_external = true %}
+          {% endif %}
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+            {% if new_tab and is_external %}
+              rel="noopener" target="_blank"
+            {% endif %}
+          >
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
+            </span>
+          </a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

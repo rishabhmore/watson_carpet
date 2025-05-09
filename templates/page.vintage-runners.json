@@ -1,0 +1,431 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_79dJCt": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_6Dg7e3": {
+          "type": "caption",
+          "settings": {
+            "caption": "New england floors",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_8VATtU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Curarated Vintage rugs</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_6Dg7e3",
+        "heading_8VATtU"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Background_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_iJQQhj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pKVyWn": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Add an Antique Stair Runner Carpet to Your Home</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_pYeKmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are happy to announce our partnership with New England Loom. If you are looking for an antique, one-of-a-kind rug or runner, take a look at their current offerings. These rugs are sold on a first come, first serve basis so act fast!To get started, enter your information below:</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pKVyWn",
+        "text_pYeKmF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_i8mbF3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EhdRw9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Carpet_with_a_diamond_pattern_style_grey_and_white_colors_fabricated_and_installed_as_a_stair_runner._c101ec3b-dd68-4908-9ac6-af0e8a2dcbb6.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FdYnhh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Carpet_with_a_diamond_pattern_style_grey_and_white_colors_fabricated_and_installed_as_a_stair_runner.-1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_k6E3R9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Carpet_with_a_diamond_pattern_style_grey_and_white_colors_fabricated_and_installed_as_a_stair_runner.-2.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6w3iY8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Carpet_with_a_diamond_pattern_style_grey_and_white_colors_fabricated_and_installed_as_a_stair_runner.-3.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EhdRw9",
+        "column_FdYnhh",
+        "column_k6E3R9",
+        "column_6w3iY8"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_CVqx7w": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xgdTbm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_b3490267-ba52-4f3d-8a20-4b2383cdaaae.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_4tcTm8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-1.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6VjJP3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-2.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_kiRhgG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-3.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_twgq46": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-4.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hLKK4H": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-5.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WaLwyK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-6.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ccyCFG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-7.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_TLhkMw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-8.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_mDRJLg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-9.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_3wbX7b": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-5.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EzjTUm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-11.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_zj6fTG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-12.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EDKeAK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-13.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_67jdK8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-14.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tzmBXM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-15.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EnrUkB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-16.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WJVi4J": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-17.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_N8Xm4F": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-18.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DRbAAP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-19.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VKWqEf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-20.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bGPjAx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image-21.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xgdTbm",
+        "column_4tcTm8",
+        "column_6VjJP3",
+        "column_kiRhgG",
+        "column_twgq46",
+        "column_hLKK4H",
+        "column_WaLwyK",
+        "column_ccyCFG",
+        "column_TLhkMw",
+        "column_mDRJLg",
+        "column_3wbX7b",
+        "column_EzjTUm",
+        "column_zj6fTG",
+        "column_EDKeAK",
+        "column_67jdK8",
+        "column_tzmBXM",
+        "column_EnrUkB",
+        "column_WJVi4J",
+        "column_N8Xm4F",
+        "column_DRbAAP",
+        "column_VKWqEf",
+        "column_bGPjAx"
+      ],
+      "settings": {
+        "title": "Gallery",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_with_text_79dJCt",
+    "rich_text_iJQQhj",
+    "multicolumn_i8mbF3",
+    "main",
+    "multicolumn_CVqx7w"
+  ]
+}

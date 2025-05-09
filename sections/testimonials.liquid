@@ -1,0 +1,221 @@
+{% comment %}
+  Testimonial Slider Section - Integrated with Slideshow Behavior
+{% endcomment %}
+
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+
+<div class='testimonial-section testimonial-section-{{ section.id }} color-{{ section.settings.color_scheme }}'>
+  <div class='page-width' style='text-align:center'>
+{% if section.settings.heading !=blank  %}
+      <h1 class='testimonial-heading title inline-richtext h1'>{{ section.settings.heading }}</h1>
+    {% endif %}
+<slideshow-component class="testimonial-slider slider-mobile-gutter page-width " role="region" aria-label="Testimonials">
+  <div class="slideshow banner grid grid--1-col slider slider--everywhere animate--fade-in" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true" data-autoplay="true" data-speed="5">
+    {% for block in section.blocks %}
+      <div class="slideshow__slide grid__item slider__slide" id="Slide-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <div class="testimonial-card">
+          <div class="testimonial-left">
+            <div class="testimonial-user">
+              {% if block.settings.profile %}
+                <img src="{{ block.settings.profile | image_url }}" alt="{{ block.settings.username }}" class="testimonial-profile" />
+              {% endif %}
+              <strong>{{ block.settings.username }}</strong>
+            </div>
+            <div class="testimonial-stars">
+                {% for i in (1..block.settings.stars) %}
+                  <span>★</span>
+                {% endfor %}
+              </div>
+          <hr/>
+            <h3>{{ block.settings.title }}</h3>
+            <p class="testimonial-body">{{ block.settings.text }}</p>
+            <p class="testimonial-author">{{ block.settings.author }}</p>
+          </div>
+          <div class="testimonial-image">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url }}" alt="Testimonial Image" />
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="slideshow__controls slider-buttons slider-buttons--testimonial">
+    <button type="button" class="slider-button slider-button--prev button button--secondary testimonial-arrow" name="previous" aria-label="Previous testimonial" aria-controls="Slider-{{ section.id }}">←</button>
+    <button type="button" class="slider-button slider-button--next button button--secondary testimonial-arrow" name="next" aria-label="Next testimonial" aria-controls="Slider-{{ section.id }}">→</button>
+  </div>
+</slideshow-component>
+      </div>
+      </div>
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Testimonials"
+    },
+    {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-2"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "username",
+          "label": "Username"
+        },
+        {
+          "type": "image_picker",
+          "id": "profile",
+          "label": "User Profile Image"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author & Location"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Side Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  
+  .testimonial-heading {
+    color: rgba(var(--color-button)) !important;
+    font-weight: bold !important;
+}
+  .testimonial-section-{{ section.id }}{
+    margin:1.5rem 0rem;
+  }
+.slideshow__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  min-height:400px;
+  max-height:400px;
+  max-width: 900px;
+  justify-content: space-between;
+  gap: 20px;
+  background: #ffff;
+  padding: 20px;
+  
+}
+
+.testimonial-left, .testimonial-image{
+  flex:1;
+  text-align:left;
+  width:100%;
+  height:100%;
+}
+
+.testimonial-user {
+  text-align: left;
+  display:flex;
+  align-items:center;
+  justify-content:left;
+  gap:5px;
+}
+
+.testimonial-profile {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-stars span {
+  color: rgba(var(--color-button));
+}
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-body{
+  font-size:12px;
+}
+
+.slider-buttons--testimonial {
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+  max-width: 900px;
+  margin: 1rem auto 0;
+  position: relative;
+}
+.testimonial-arrow{
+  min-width:0px !important;
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    flex-wrap:nowrap;
+    max-height:none;
+    width:80%
+  }
+
+  .testimonial-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .slider-buttons--testimonial {
+    justify-content: space-around;
+  }
+}
+{% endstylesheet %}

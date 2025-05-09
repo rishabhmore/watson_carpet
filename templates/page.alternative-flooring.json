@@ -1,0 +1,298 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_79dJCt": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_6Dg7e3": {
+          "type": "caption",
+          "settings": {
+            "caption": "Experience the luxury",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_8VATtU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Alternative Flooring</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button_kjbQje": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get Custom Quote",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "Shop Online",
+            "button_link_2": "shopify://collections/custom-area-rugs-1",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_6Dg7e3",
+        "heading_8VATtU",
+        "button_kjbQje"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/xIMG_2319-1024x768_jpg_pagespeed_ic_Kai5hZ-j95_webp.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-50c8fbb2-32fb-4682-a2a8-96ac22ed38e9",
+        "color_scheme": "scheme-50c8fbb2-32fb-4682-a2a8-96ac22ed38e9",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_6XptHQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_HbGT8D": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em>Hard surface flooring is available at The Carpet Workroom!</em>",
+            "heading_size": "h2"
+          }
+        },
+        "text_deGh7F": {
+          "type": "text",
+          "settings": {
+            "text": "<p>That’s right – here at The Carpet Workroom we’re notjust about rugs. If you’re looking for alternative flooring,such as hardwood or luxury vinyl planks, we’ve got youcovered! Our team of experts will help you choose theright flooring for your style, lifestyle, and budget.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HbGT8D",
+        "text_deGh7F"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Living_room_decorated_with_light_colors_on_a_rug_for_the_perfect_view..png",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_3HCmNc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_q9CHVt": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em><strong>Ready to get started? </strong></em>",
+            "heading_size": "h1"
+          }
+        },
+        "button_xh8qyf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Make Appointment",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_q9CHVt",
+        "button_xh8qyf"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_gGMWE4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_jbVpAQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I start my custom rug project?",
+            "icon": "none",
+            "row_content": "<p>The best way to submit your inquiry is by filling out our “Start the Process Online” form found on our Out of Region page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_988JRJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your timeline?",
+            "icon": "none",
+            "row_content": "<p>As soon as a 60% deposit is received and anorder placed for in-stock stair runner material, weschedule installations 4-6 weeks out. If material isnon-stocking, it may take longer depending onthe timeline.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NPG76Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I don't live in the Northeast?",
+            "icon": "none",
+            "row_content": "<p>That’s not a problem! Visit our Out of Region page to learn how we can still work together on your project.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qzfHCn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What materials are best for homes with pets?",
+            "icon": "none",
+            "row_content": "<p>If you have pets in the home, we recommend flat-weave wool, cut pile, and loop pile carpet styles.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_jbVpAQ",
+        "collapsible_row_988JRJ",
+        "collapsible_row_NPG76Q",
+        "collapsible_row_qzfHCn"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "<strong>Frequently Asked Questions</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-4",
+        "container_color_scheme": "scheme-4",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_RJyyEm": {
+      "type": "rich-text",
+      "blocks": {
+        "button_b3WEjq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Visit FAQ Page",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_b3WEjq"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "image_with_text_MxFTKx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_YYQAFh": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em>Want to start the process online instead? Here's how it works</em>",
+            "heading_size": "h2"
+          }
+        },
+        "text_bGDD8h": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li>Collect photos of the room, hall, or stairs you’d like carpeted and take some measurements, if possible.<br/></li><li>Take note of any materials you may want to use. Visit our blog, gallery, or online store for inspiration. If you’re nearby, you can always visit our locations before making your final decision.<br/></li><li>Fill out this form andsubmit it to us. You’ll beable to upload thosephotos, give us anymeasurements you wereable to take, and tell uswhich materials you havein mind.<br/></li><li>After we receive your formwe’ll get in contact withyou. We may need to getsome more informationfrom you before we cangive you a quote.</li></ol>",
+            "text_style": "body"
+          }
+        },
+        "button_y9zyxa": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Process Online",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YYQAFh",
+        "text_bGDD8h",
+        "button_y9zyxa"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Black_and_white_textured_carpet_finished_with_a_wide_black_binding_fabricated_and_installed_as_a_stair_runner..png",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": false,
+        "image-box-shadow": false,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_79dJCt",
+    "image_with_text_6XptHQ",
+    "rich_text_3HCmNc",
+    "collapsible_content_gGMWE4",
+    "rich_text_RJyyEm",
+    "image_with_text_MxFTKx"
+  ]
+}

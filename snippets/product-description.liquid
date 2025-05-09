@@ -1,0 +1,136 @@
+{% assign rug_material = product.selected_or_first_available_variant.metafields.fabric.metadata %}
+<input
+  type="hidden"
+  class="rug-material-description"
+  data-variantid="{{ product.selected_or_first_available_variant.id }}" />
+<div class="product-description">
+  {% if rug_material %}
+    {% assign material = rug_material.value %}
+
+    <ul class="rug-material-list">
+      <li>BRAND: STARK</li>
+
+      {% if material.fiberContent %}
+        <li>MATERIAL: {{ material.fiberContent }}</li>
+      {% endif %}
+
+      {% if material.construction %}
+        <li>CONSTRUCTION: {{ material.construction }}</li>
+      {% endif %}
+
+      {% if material.secondaryStyle %}
+        <li>STYLE: {{ material.secondaryStyle }}</li>
+      {% endif %}
+
+      {% if material.pileHeight %}
+        <li>PILE HEIGHT: {{ material.pileHeight }}</li>
+      {% endif %}
+
+      {% if material.patternRepeatWidth and material.patternRepeatLength %}
+        <li>
+          PATTERN REPEAT:
+          {{ material.patternRepeatWidth }}" W X
+          {{ material.patternRepeatLength }}" L
+        </li>
+      {% endif %}
+
+      {% if material.width %}
+        {% assign width_in_inches = material.width | times: 0.3937 %}
+        {% assign feet = width_in_inches | divided_by: 12 | floor %}
+        {% assign inches = width_in_inches | modulo: 12 | floor %}
+        <li>
+          ROLL WIDTH:
+          {{ feet }}' {{ inches }}"
+        </li>
+      {% endif %}
+
+      {% if material.countryOfOrigin %}
+        <li>ORIGIN: {{ material.countryOfOrigin }}</li>
+      {% endif %}
+    </ul>
+  {% else %}
+    <p>No material information available for this variant.</p>
+  {% endif %}
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantMetafields = {
+      {% for variant in product.variants %}
+        "{{ variant.id }}": {
+          rug_material: {{ variant.metafields.custom.rug_material}}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    };
+
+    const variantInput = document.querySelector('.rug-material-description');
+    const descContent = document.querySelector('.product-description');
+
+    // Function to update the content dynamically
+    const updateMaterialContent = (variantId) => {
+      const metafieldData = variantMetafields[variantId]?.rug_material;
+
+      if (!metafieldData) {
+        descContent.innerHTML = '<p>No material information available for this variant.</p>';
+        return;
+      }
+
+      const material = metafieldData;
+      const listItems = [];
+      
+      listItems.push("<li>BRAND: STARK</li>")
+
+      if (material.fiberContent) {
+        console.log(material.fiberContent);
+        listItems.push(`<li>MATERIAL: ${material.fiberContent}</li>`);
+      }
+      if (material.construction) {
+        listItems.push(`<li>CONSTRUCTION: ${material.construction}</li>`);
+      }
+      if (material.secondaryStyle) {
+        listItems.push(`<li>STYLE: ${material.secondaryStyle}</li>`);
+      }
+      if (material.pileHeight !== null) {
+        listItems.push(`<li>PILE HEIGHT: ${material.pileHeight}</li>`);
+      }
+      if (material.patternRepeatWidth && material.patternRepeatLength) {
+        listItems.push(
+        <li>PATTERN REPEAT: ${parseFloat(material.patternRepeatWidth).toString()}" W X ${parseFloat(material.patternRepeatLength).toString()}" L</li>
+        );
+      }
+
+      if (material.width !== null) {
+        if(material.width !== 0){
+          const widthInInches = material.width;
+          const feet = Math.floor(widthInInches / 12);
+          const inches = Math.floor(widthInInches % 12);
+          listItems.push(`<li>ROLL WIDTH: ${feet}' ${inches}"</li>`);
+        }else{
+          listItems.push(`<li>ROLL WIDTH: 0</li>`);
+        }
+        
+      }
+      if (material.countryOfOrigin) {
+        listItems.push(`<li>ORIGIN: ${material.countryOfOrigin}</li>`);
+      }
+
+      // Update the accordion content
+      descContent.innerHTML = `<ul class="rug-material-list">${listItems.join('')}</ul>`;
+    };
+
+    // Observer to detect changes in data-variantid
+    const observer = new MutationObserver(() => {
+      const variantId = variantInput.getAttribute('data-variantid');
+      if (variantId) {
+        updateMaterialContent(variantId);
+      }
+    });
+
+    // Observe the input for attribute changes
+    observer.observe(variantInput, { attributes: true, attributeFilter: ['data-variantid'] });
+
+    // Initial content update
+    updateMaterialContent(variantInput.getAttribute('data-variantid'));
+  });
+</script>

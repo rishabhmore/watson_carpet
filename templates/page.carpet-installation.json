@@ -1,0 +1,497 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_79dJCt": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_6Dg7e3": {
+          "type": "caption",
+          "settings": {
+            "caption": "Experience the luxury",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_8VATtU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Custom Installation</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button_kjbQje": {
+          "type": "button",
+          "settings": {
+            "button_label": "Make Appointment",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "Shop online",
+            "button_link_2": "shopify://collections/custom-area-rugs-1",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_6Dg7e3",
+        "heading_8VATtU",
+        "button_kjbQje"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Background_1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-50c8fbb2-32fb-4682-a2a8-96ac22ed38e9",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multirow_zTVc9M": {
+      "type": "multirow",
+      "blocks": {
+        "row_drkTTb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Wall_to_wall_carpet_with_a_special_design_with_black_and_grey_colors_installed_in_a_room..png",
+            "caption": "",
+            "heading": "Expert carpet installation foryour home or business",
+            "text": "<p>After we receive your formwe’ll get in contact withyou. We may need to getsome more informationfrom you before we cangive you a quote.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_mE68BE": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Team_working_on_a_carpet_installation_in_a_room..png",
+            "caption": "",
+            "heading": "Residential wall to wall installation",
+            "text": "<p>Whether you just love the look and feel of wall to wallcarpeting or you want to cover up unsightly subflooring,we here at The Carpet Workroom have got you covered.Instantly add style, comfort, warmth, and sound controlto bedrooms, basements, halls, stairs, living rooms –really anywhere in your home!</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_YXjf8V": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Black_and_cream_striped_carpet_that_is_fabricated_and_installed_as_a_stair_runner..png",
+            "caption": "",
+            "heading": "Residential stair runnerinstallation",
+            "text": "<p>The Carpet Workroom specializes in the fabrication and installation of custom stair runners. We’ll work closely with you or your designer to create and install the perfect stair runner for your home.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_drkTTb",
+        "row_mE68BE",
+        "row_YXjf8V"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-right",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multi_images_with_text_pEjcrr": {
+      "type": "multi-images-with-text",
+      "blocks": {
+        "heading_8WqKbw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_D9TCVt": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Commercial broadloom carpet installation</strong></p><p>Carpet is a great option for high  traffic areas such as businesses, schools, hotels and more. Understandably, commercial carpet is built mainly for durability. But today, you don’t have to sacrifice style to get a carpet that will hold up.</p><p>While the commercial carpet installation process is similar to a residential carpet install, they are different. Our team of professional installers will ensure your project is successful froms tart to finish.</p><p><strong>Commercial carpet tile installation</strong></p><p>Carpet tiles are a big trend in the carpet industry. What makes them different is their versatility.</p><p>Carpet tiles typically come in 2 feet by 2 feet squares and are installed one at a time. This allows you to clean or replace any single tile that gets dirty or damaged with ease. Since carpet tiles come in more decorative and modern styles, updating the face of your commercial space is a breeze.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8WqKbw",
+        "text_D9TCVt"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Commercial_carpet_installation_with_a_dark_color_combined_with_the_room._82442187-9f96-47bd-88ee-266eba6da0d5.png",
+        "secondary_image": "shopify://shop_images/Multi-colored_commercial_carpet_styled_and_installed_by_The_Carpet_Workroom..png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    },
+    "video_qKLgqJ": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://youtu.be/cjxkyFq9rcY",
+        "cover_image": "shopify://shop_images/youtube-cover.webp",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_3HCmNc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_q9CHVt": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em><strong>Ready to get started? </strong></em>",
+            "heading_size": "h1"
+          }
+        },
+        "button_xh8qyf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Make Appointment",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false,
+            "button_label_2": "Shop online",
+            "button_link_2": "shopify://collections/custom-area-rugs-1",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_q9CHVt",
+        "button_xh8qyf"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_i8mbF3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EhdRw9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Carpet_with_a_diamond_pattern_style_grey_and_white_colors_fabricated_and_installed_as_a_stair_runner..png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FdYnhh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Room_with_wall_to_wall_carpet_designed_with_stars_of_different_colors..png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_k6E3R9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Finishes_make_all_the_difference_wide_black_binding_on_a_carpet_installed_as_a_stair_runner..png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_6w3iY8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Final_details_of_a_rug_with_a_herringbone_style_with_light_colors_installed_on_a_room..png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EhdRw9",
+        "column_FdYnhh",
+        "column_k6E3R9",
+        "column_6w3iY8"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_wVcYVW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pji8LW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em><strong>Is your project outside of the Northeast?</strong></em>",
+            "heading_size": "h2"
+          }
+        },
+        "text_6ACFFR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Learn how we can still work together!</p>"
+          }
+        },
+        "button_8rKUp3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Visit Out of Region Page",
+            "button_link": "shopify://pages/services",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_tyEhGM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Online",
+            "button_link": "shopify://collections/custom-area-rugs-1",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pji8LW",
+        "text_6ACFFR",
+        "button_8rKUp3",
+        "button_tyEhGM"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "collapsible_content_gGMWE4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_jbVpAQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I start my custom rug project?",
+            "icon": "none",
+            "row_content": "<p>The best way to submit your inquiry is by filling out our “Start the Process Online” form found on our Out of Region page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_988JRJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your timeline?",
+            "icon": "none",
+            "row_content": "<p>As soon as a 60% deposit is received and anorder placed for in-stock stair runner material, weschedule installations 4-6 weeks out. If material isnon-stocking, it may take longer depending onthe timeline.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NPG76Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I don't live in the Northeast?",
+            "icon": "none",
+            "row_content": "<p>That’s not a problem! Visit our Out of Region page to learn how we can still work together on your project.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qzfHCn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What materials are best for homes with pets?",
+            "icon": "none",
+            "row_content": "<p>If you have pets in the home, we recommend flat-weave wool, cut pile, and loop pile carpet styles.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_jbVpAQ",
+        "collapsible_row_988JRJ",
+        "collapsible_row_NPG76Q",
+        "collapsible_row_qzfHCn"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "<strong>Frequently Asked Questions</strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-2",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_RJyyEm": {
+      "type": "rich-text",
+      "blocks": {
+        "button_b3WEjq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Visit FAQ Page",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "button_b3WEjq"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "image_with_text_MxFTKx": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_YYQAFh": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em>Want to start the process online instead? Here's how it works</em>",
+            "heading_size": "h2"
+          }
+        },
+        "text_bGDD8h": {
+          "type": "text",
+          "settings": {
+            "text": "<ol><li>Collect photos of the room, hall, or stairs you’d like carpeted and take some measurements, if possible.<br/></li><li>Take note of any materials you may want to use. Visit our blog, gallery, or online store for inspiration. If you’re nearby, you can always visit our locations before making your final decision.<br/></li><li>Fill out this form andsubmit it to us. You’ll beable to upload thosephotos, give us anymeasurements you wereable to take, and tell uswhich materials you havein mind.<br/></li><li>After we receive your formwe’ll get in contact withyou. We may need to getsome more informationfrom you before we cangive you a quote.</li></ol>",
+            "text_style": "body"
+          }
+        },
+        "button_y9zyxa": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Process Online",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YYQAFh",
+        "text_bGDD8h",
+        "button_y9zyxa"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Black_and_white_textured_carpet_finished_with_a_wide_black_binding_fabricated_and_installed_as_a_stair_runner..png",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": false,
+        "image-box-shadow": false,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_79dJCt",
+    "multirow_zTVc9M",
+    "multi_images_with_text_pEjcrr",
+    "video_qKLgqJ",
+    "rich_text_3HCmNc",
+    "multicolumn_i8mbF3",
+    "rich_text_wVcYVW",
+    "collapsible_content_gGMWE4",
+    "rich_text_RJyyEm",
+    "image_with_text_MxFTKx"
+  ]
+}

@@ -1,0 +1,292 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Shop Truly Custom Rugs</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "desktop_content_width": 40,
+        "color_scheme": "scheme-5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "image_with_text_qDepMM": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_DCcQNT": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Welcome to The New England Rug Company!</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_qwMrf4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Find the perfect rug for your home at New England Rug Company. We are a subsidiary of The Carpet Workroom, a second generation family business that has mastered the art of custom carpet and rugs. We offer a curated collection of designer area rugs expertly fabricated from our most popular carpet styles shipped right  to your door. The rugs are cut by hand and crafted in New England,  America's original home for woven textiles!Visit our blog for rug buying tips, size guides, home-decorating ideas and much more. For assistance choosing the best rug, contact us to speak with an expert. </p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DCcQNT",
+        "text_qwMrf4"
+      ],
+      "custom_css": [
+        "h2 {color: rgba(var(--color-button));}"
+      ],
+      "settings": {
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_XxX7me": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {color: rgba(var(--color-button));}"
+      ],
+      "settings": {
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "fabric_products",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "recently_added_badge": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    },
+    "testimonials_EJmpWn": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_fTHTD8": {
+          "type": "testimonial",
+          "settings": {
+            "username": "Kristina",
+            "stars": 4,
+            "title": "I haighly recomend the carpet workroom!",
+            "text": "\"My entire process was seamless. From the selection, design, to completion and delivery, John was wonderful to work with and made out-of-state ordering extremely easy. I can’t wait to roll out my new rugs!\"",
+            "author": "Mount Vernon, NY"
+          }
+        },
+        "testimonial_L7ARMQ": {
+          "type": "testimonial",
+          "settings": {
+            "username": "Kristina",
+            "stars": 5,
+            "title": "I haighly recomend the carpet workroom!",
+            "text": "\"My entire process was seamless. From the selection, design, to completion and delivery, John was wonderful to work with and made out-of-state ordering extremely easy. I can’t wait to roll out my new rugs!\"",
+            "author": "Mount Vernon, NY"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_fTHTD8",
+        "testimonial_L7ARMQ"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "Testimonials",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "multicolumn_7XKirq": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RhDEcH": {
+          "type": "column",
+          "settings": {
+            "title": "Great Deals on Area Rugs",
+            "text": "<p> </p>",
+            "link_label": "VIEW ALL",
+            "link": "shopify://products/stamen"
+          }
+        },
+        "column_6LiwYh": {
+          "type": "column",
+          "settings": {
+            "title": "Best Rug Pads for Hardwood Floors & Accessories",
+            "text": "",
+            "link_label": "VIEW ALL",
+            "link": ""
+          }
+        },
+        "column_pGP7Wm": {
+          "type": "column",
+          "settings": {
+            "title": "Spot Out Cleaner",
+            "text": "",
+            "link_label": "VIEW ALL",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_RhDEcH",
+        "column_6LiwYh",
+        "column_pGP7Wm"
+      ],
+      "custom_css": [
+        "h3 {color: rgba(var(--color-button));}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multi_images_with_text_KcXfnH": {
+      "type": "multi-images-with-text",
+      "blocks": {
+        "heading_z8W47T": {
+          "type": "heading",
+          "settings": {
+            "heading": "Looking for something a little more unique?",
+            "heading_size": "h1"
+          }
+        },
+        "text_YQNGJ7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you are thinking outside the box and need something cut-to-fit  around a fireplace, a uniquely shaped room or even around a hearth - we  have you covered!Reach out to info@carpetworkroom.com to get your project started today!</p>",
+            "text_style": "body"
+          }
+        },
+        "button_cYcMR9": {
+          "type": "button",
+          "settings": {
+            "button_label": "View Detail",
+            "button_link": "shopify://pages/services",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_z8W47T",
+        "text_YQNGJ7",
+        "button_cYcMR9"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "image_border": true,
+        "image-box-shadow": true,
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_rP7LDx": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-2",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "image_with_text_qDepMM",
+    "featured_collection_XxX7me",
+    "testimonials_EJmpWn",
+    "multicolumn_7XKirq",
+    "multi_images_with_text_KcXfnH",
+    "featured_blog_rP7LDx"
+  ]
+}

@@ -1,0 +1,177 @@
+{% schema %}
+{
+  "name": "Custom Gallery Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Desktop Columns"
+    },
+      {
+      "type": "range",
+      "id": "columns_gap",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2,
+      "unit":"rem",
+      "label": "Desktop Column gap"
+    },
+     {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-2"
+        }
+  ],
+  "blocks": [
+    
+    {
+      "type": "image",
+      "name": "Gallery Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category (e.g., stair-runners, area-rugs)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 100,
+  "presets": [
+    {
+      "name": "Custom Gallery Grid",
+      "category": "Custom"
+    }
+  ]
+}
+
+{% endschema %}
+<div class='custom_gallery_grid color-{{ section.settings.color_scheme }}'>
+<div class='page-width'>
+<div class="gallery-filters">
+  <a class='filter-link active' data-filter="all">All</a>
+  {% assign categories = '' %}
+  
+  {% for block in section.blocks %}
+  {% assign cat = block.settings.category | downcase | replace: ' ', '-' %}
+    <!-- avoid duplicate filters  -->
+    {% unless categories contains cat %}
+      <a class='filter-link' data-filter="{{ cat -}}">
+      {{ cat | replace: '-', ' ' | capitalize -}}
+      </a>
+      {% assign categories = categories | append: cat %}
+    {% endunless %}
+  {% endfor %}
+  
+</div>
+
+<div class="gallery-grid">
+  {% for block in section.blocks %}
+    {% assign cat = block.settings.category | downcase | replace: ' ', '-' %}
+    <div class="gallery-item {{ cat -}}">
+      <img src="{{ block.settings.image | image_url: width: 300, height: 300 }}" alt="{{ cat -}}">
+    </div>
+  {% endfor %}
+</div>
+</div>
+</div>
+
+<style>
+.custom_gallery_grid{
+  padding:2rem;
+}
+
+.gallery-filters {
+  text-align: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1.5rem;
+  margin-bottom: 2rem;
+  
+}
+  
+.filter-link{
+  font-size:20px;
+  cursor:pointer !important;
+  font-weight:500;
+}
+.filter-link:hover{
+  color:rgb(var(--color-button));
+  text-decoration:underline;
+}
+.active{
+  color:rgb(var(--color-button));
+  text-decoration:underline;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.columns_desktop }},1fr);
+  gap: {{section.settings.columns_gap}}rem;
+}
+.gallery-item{
+  width:100%;
+   height:100%;
+  border:8px solid white;
+   box-shadow: 0px 5px 20px 0px #0000001A;
+  overflow:hidden;
+}
+  
+.gallery-item img {
+  width: 100%;
+  aspect-ratio:1;
+  transform:scale(1.17);
+  height:100%;
+  display: block;
+  object-fit:cover;
+  transition: ease 2s;
+}
+.gallery-item img:hover{
+  transform:scale(1);
+  filter: brightness(50%);
+}
+  @media (max-width:768px){
+    .gallery-filters{
+    flex-direction:column;
+    }
+    .gallery-grid{
+      display:flex;
+      flex-direction:column;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll("[data-filter]");
+    const items = document.querySelectorAll(".gallery-item");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter").toLowerCase();
+
+        // show/hide gallery images
+        items.forEach(item => {
+          item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none" ;
+        });
+
+        // handle active state 
+         buttons.forEach(b => b.classList.remove("active")); 
+        btn.classList.add("active"); 
+      });
+    });
+  });
+</script>
+
+

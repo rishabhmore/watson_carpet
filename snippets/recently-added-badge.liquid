@@ -1,0 +1,7 @@
+{% assign product_created_at = product.created_at | date: "%s" | plus: 0 %}
+{% assign current_time = "now" | date: "%s" | plus: 0 %}
+{% assign seconds_since_created = current_time | minus: product_created_at %}
+{% assign days_since_created = seconds_since_created | divided_by: 86400 %}
+{% if days_since_created <= 7 %}
+  <span class="recently-added-badge">New</span>
+{% endif %}
