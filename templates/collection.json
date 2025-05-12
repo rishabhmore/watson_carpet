@@ -11,10 +11,42 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
-        "show_collection_description": true,
+        "show_collection_description": false,
         "show_collection_image": true,
         "color_scheme": "scheme-1"
+      }
+    },
+    "image_banner_8CfWWD": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_wVefPj": {
+          "type": "heading",
+          "settings": {
+            "heading": "PRIVATE COLLECTIONS",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wVefPj"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/collection_sample.png",
+        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "desktop_content_width": 0,
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
       }
     },
     "product-grid": {
@@ -42,6 +74,7 @@
   },
   "order": [
     "banner",
+    "image_banner_8CfWWD",
     "product-grid"
   ]
 }
