@@ -77,6 +77,10 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
+        "vp_solid_btn_color": "#42605f",
+        "vp_solid_btn_label": "#ffffff",
+        "vp_outlined_btn_color": "#42605f",
+        "vp_outlined_btn_label": "#000000",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
