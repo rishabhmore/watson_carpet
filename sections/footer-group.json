@@ -14,6 +14,15 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "brand_image_jy7LaX": {
+          "type": "brand-image",
+          "settings": {
+            "brand_image": "shopify://shop_images/image_2.png",
+            "image_cta": "",
+            "brand_image_fullwidth": true,
+            "brand_image_alignment": "right"
+          }
+        },
         "link_list_zPA6ff": {
           "type": "link_list",
           "settings": {
@@ -38,8 +47,16 @@
             "new_tab": true
           }
         },
+        "text_kLzrYh": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "subtext": "<p>843.577.3386<br/>1523 Meeting Street<br/>Charleston, SC 29405<br/>info@finerugsofcharleston.com<br/>Monday - Friday 10 am - 5 pm<br/>Saturday by appointment</p>"
+          }
+        },
         "brand_information_rDDR9L": {
           "type": "brand_information",
+          "disabled": true,
           "settings": {
             "logo_link": "https://cdn.shopify.com/s/files/1/0614/6097/1595/files/fr-ch-logo.png?v=1747047087",
             "show_social": false
@@ -47,9 +64,11 @@
         }
       },
       "block_order": [
+        "brand_image_jy7LaX",
         "link_list_zPA6ff",
         "link_list_cMCaiH",
         "link_list_X73fx9",
+        "text_kLzrYh",
         "brand_information_rDDR9L"
       ],
       "custom_css": [],
