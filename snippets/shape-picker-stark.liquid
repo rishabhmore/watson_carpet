@@ -5,7 +5,7 @@
 <script src="{{ 'get-price-from-stark.js' | asset_url }}" defer="defer"></script>
 {% assign shapes = 'Rectangular,Round' | split: ',' %}
 <div class="option-block">
-  <input type="hidden" id="selected-variant-id" value="" >
+  <input type="hidden" id="selected-variant-id" value="">
   <h5 class="picker-header">Shapes</h5>
   <div class="shape-picker" data-area="0">
     {% for shape in shapes %}
@@ -26,67 +26,59 @@
           form="{{product_form_id}}"
         >
         <div class="shape-pill-content">
-        {% if shape == 'Round' %}
-          {% render 'icon-round' %}
-        {% elsif shape == 'Rectangular' %}
-          {% render 'icon-rectangle' %}
-        {% endif %}
-        <div class="shape-pill-label">
-        {{ shape }}
-        </div>
+          {% if shape == 'Round' %}
+            {% render 'icon-round' %}
+          {% elsif shape == 'Rectangular' %}
+            {% render 'icon-rectangle' %}
+          {% endif %}
+          <div class="shape-pill-label">
+            {{ shape }}
+          </div>
         </div>
       </label>
     {% endfor %}
   </div>
 
   <div class="shape-details-container">
- 
     <div id="RoundDetails" class="shape-details" style="display: none;">
       <label for="DiameterSelect" class="form-label">DIAMETER</label>
       <div class="flex-row">
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="DiameterSelect" name="diameter" class="form-select">
-          </select>
-           <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="DiameterSelect" name="diameter" class="form-select"></select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="DiameterInchSelect" name="diameter-inch" class="form-select">            
-          </select>
-          <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="DiameterInchSelect" name="diameter-inch" class="form-select"></select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
- 
     <div id="RectangularDetails" class="shape-details" style="display: block;">
-
       <label for="WidthSelect" class="form-label">WIDTH</label>
       <div class="flex-row">
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="WidthSelect" name="width" class="form-select">
-          </select>
-           <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="WidthSelect" name="width" class="form-select"></select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="WidthInchSelect" name="width-inch" class="form-select">
-          </select>
-           <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="WidthInchSelect" name="width-inch" class="form-select"></select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
       </div>
@@ -94,119 +86,121 @@
       <div class="flex-row">
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="LengthSelect" name="length" class="form-select">
-          </select>
-           <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="LengthSelect" name="length" class="form-select"></select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
         <div class="dimension-input">
           <div class="select-wrapper">
-          <select id="LengthInchSelect" name="length-inch" class="form-select">
-            {% for i in (0..11) %}
-              <option value="{{ i }}">{{ i }} inch</option>
-            {% endfor %}
-          </select>
-           <div class="custom-arrow">
-           {% render 'double-arrow' %}
-          </div>
+            <select id="LengthInchSelect" name="length-inch" class="form-select">
+              {% for i in (0..11) %}
+                <option value="{{ i }}">{{ i }} inch</option>
+              {% endfor %}
+            </select>
+            <div class="custom-arrow">
+              {% render 'double-arrow' %}
+            </div>
           </div>
         </div>
       </div>
-
     </div>
- 
-</div>
+  </div>
 
-<a href="#" id="openMaxMinInfo">Min/max size info</a>
-  <div class="shape-picker-error shape-picker-error-hide" id="shape-picker-error">Minimum of 12 square feet required</div>
+  <a href="#" id="openMaxMinInfo">Min/max size info</a>
+  <div class="shape-picker-error shape-picker-error-hide" id="shape-picker-error">
+    Minimum of 12 square feet required
+  </div>
 </div>
 
 <dialog class="max-min-dialog" id="max-min-dialog">
-    <div class="max-min-modal-content">
-        <div class="max-min-modal-header">
-            <span class="close-max-min-modal">&times</span>
-            <h2 align="center">MAX MIN SIZE INFO</h2>
+  <div class="max-min-modal-content">
+    <div class="max-min-modal-header">
+      <span class="close-max-min-modal">&times</span>
+      <h2 align="center">MAX MIN SIZE INFO</h2>
+    </div>
+    <div class="max-min-modal-body">
+      <div class="rectangle-info flex-container">
+        <!-- First container for Min Size -->
+        <div class="min-container">
+          <div class="dimension-container">
+            <div class="rectangle min-rectangle">
+              <span class="length-label-vertical">&#8592; <span id="min-rect-length-value">8ft</span> &#8594;</span>
+              <span class="width-label-horizontal">&#8592; <span id="min-rect-width-value"></span>&#8594;</span>
+            </div>
+          </div>
+          <div class="size-desc">
+            <h4>Min Size</h4>
+            <div class="min-desc">
+              <h5 class="desc-label">MIN WIDTH</h5>
+              <h6 id="min-width-value">2 FEET</h6>
+            </div>
+            <div class="max-desc">
+              <h5 class="desc-label">MIN LENGTH</h5>
+              <h6 id="min-length-value">5 FEET</h6>
+            </div>
+          </div>
         </div>
-            <div class="max-min-modal-body">
-              <div class="rectangle-info flex-container">
-                <!-- First container for Min Size -->
-                <div class="min-container">
-                    <div class="dimension-container">
-                    <div class="rectangle min-rectangle">
-                        <span class="length-label-vertical">&#8592; <span id="min-rect-length-value">8ft</span> &#8594;</span>
-                        <span class="width-label-horizontal">&#8592; <span id="min-rect-width-value"></span>&#8594;</span>
-                    </div>
-                    </div>
-                    <div class="size-desc">
-                        <h4>Min Size</h4>
-                        <div class="min-desc">
-                          <h5 class="desc-label">MIN WIDTH</h5>
-                          <h6 id="min-width-value">2 FEET</h6>
-                        </div>
-                         <div class="max-desc">
-                          <h5 class="desc-label">MIN LENGTH</h5>
-                          <h6 id="min-length-value">5 FEET</h6>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Second container for Max Size -->
-                <div class="max-container">
-                  <div class="dimension-container">
-                    <div class="rectangle max-rectangle">
-                        <span class="length-label-vertical">&#8592; <span id="max-rect-length-value">5ft</span> &#8594;</span>
-                        <span class="width-label-horizontal">&#8592; <span id="max-rect-width-value">8ft</span>&#8594;</span>
-                    </div>
-                    </div>
-                     <div class="size-desc">
-                        <h4>Max Size</h4>
-                        <div class="max-desc">
-                          <h5 id="desc-label">MAX WIDTH</h5>
-                          <h6 id="max-width-value">2 FEET</h6>
-                        </div>
-                         <div class="max-desc">
-                          <h5 class="desc-label">MAX LENGTH</h5>
-                          <h6 id="max-length-value">5 FEET</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="round-info flex-container">
-               <div class="min-container">
-                    <div class="dimension-container">
-                    <div class="round min-round">
-                        <span class="diameter-label-vertical">&#8592; <span id="min-round-diameter-value">8ft</span> &#8594;</span>
-                    </div>
-                    </div>
-                    <div class="size-desc">
-                        <h4>Min Size</h4>
-                        <div class="min-desc">
-                          <h5 class="desc-label">MIN DIAMETER</h5>
-                          <h6 id="min-diameter-value">2 FEET</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="max-container">
-                    <div class="dimension-container">
-                    <div class="round max-round">
-                        <span class="diameter-label-vertical">&#8592; <span id="max-round-diameter-value">8ft</span> &#8594;</span>
-                    </div>
-                    </div>
-                    <div class="size-desc">
-                        <h4>Max Size</h4>
-                        <div class="min-desc">
-                          <h5 class="desc-label">MAX DIAMETER</h5>
-                          <h6 id="max-diameter-value">2 FEET</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           </div>
-      </div>
-</dialog>
 
+        <!-- Second container for Max Size -->
+        <div class="max-container">
+          <div class="dimension-container">
+            <div class="rectangle max-rectangle">
+              <span class="length-label-vertical">&#8592; <span id="max-rect-length-value">5ft</span> &#8594;</span>
+              <span class="width-label-horizontal">&#8592; <span id="max-rect-width-value">8ft</span>&#8594;</span>
+            </div>
+          </div>
+          <div class="size-desc">
+            <h4>Max Size</h4>
+            <div class="max-desc">
+              <h5 id="desc-label">MAX WIDTH</h5>
+              <h6 id="max-width-value">2 FEET</h6>
+            </div>
+            <div class="max-desc">
+              <h5 class="desc-label">MAX LENGTH</h5>
+              <h6 id="max-length-value">5 FEET</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="round-info flex-container">
+        <div class="min-container">
+          <div class="dimension-container">
+            <div class="round min-round">
+              <span class="diameter-label-vertical"
+                >&#8592; <span id="min-round-diameter-value">8ft</span> &#8594;</span
+              >
+            </div>
+          </div>
+          <div class="size-desc">
+            <h4>Min Size</h4>
+            <div class="min-desc">
+              <h5 class="desc-label">MIN DIAMETER</h5>
+              <h6 id="min-diameter-value">2 FEET</h6>
+            </div>
+          </div>
+        </div>
+        <div class="max-container">
+          <div class="dimension-container">
+            <div class="round max-round">
+              <span class="diameter-label-vertical"
+                >&#8592; <span id="max-round-diameter-value">8ft</span> &#8594;</span
+              >
+            </div>
+          </div>
+          <div class="size-desc">
+            <h4>Max Size</h4>
+            <div class="min-desc">
+              <h5 class="desc-label">MAX DIAMETER</h5>
+              <h6 id="max-diameter-value">2 FEET</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <script src="{{ 'currency-divisor.js' | asset_url }}" defer></script>
 <script>  
@@ -668,11 +662,8 @@
   });
 </script>
 
-
-
 <style>
-
-.option-block {
+  .option-block {
     border: 1px solid #ccc;
     padding: 15px 20px;
     border-radius: 3px;
@@ -681,7 +672,7 @@
     margin-bottom: 15px;
     font-weight: bold;
   }
-  .picker-header{
+  .picker-header {
     font-size: 1.7rem;
     font-family: var(--font-body-family);
   }
@@ -702,11 +693,11 @@
   .shape-pill-content {
     display: flex;
     align-items: center;
-    gap:0.8rem;
+    gap: 0.8rem;
   }
   .shape-pill.checked {
-    background-color: #000;
-    color: #fff;
+    background-color: rgba(var(--color-button));
+    color: rgb(var(--color-button-text));
     border-color: #000;
   }
   .shape-pill.disabled {
@@ -719,100 +710,95 @@
   }
 
   .shape-details {
-  margin-top: 15px;
-}
+    margin-top: 15px;
+  }
 
-.flex-row {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
+  .flex-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
 
-.dimension-input {
-  flex:1;
-  display: flex;
-  flex-direction: column;
-}
+  .dimension-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
-.form-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-  font-size:1.3rem;
-}
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1.3rem;
+  }
 
-.form-label-sm {
-  font-size: 1.1rem;
-  font-weight: normal;
-  margin-bottom: 3px;
-  text-align: center;
-}
+  .form-label-sm {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 3px;
+    text-align: center;
+  }
 
+  /* Additional styles to handle padding and appearance */
 
+  select {
+    /* Adjust padding to fit your design */
+    border: none !important;
+    font-size: 16px;
+    background: inherit;
+    outline: 0;
+    margin: 0 !important;
+    color: #000;
+    /* Maintain default appearance */
+    appearance: none; /* Keeps the native arrow visible */
+    box-shadow: none !important;
+    background-color: #fbfafa !important;
+  }
 
+  select:focus {
+    border: none !important;
+  }
 
+  /* Additional styles for the select wrapper if needed */
+  .select-wrapper {
+    padding: 5px 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbfafa !important;
+    border-bottom: 1.2px solid #000;
+    box-shadow: 0.5px 0.5px 2px #eeeeee;
+  }
 
+  .select-wrapper::after {
+    content: ''; /* Custom double arrow symbols */
+    font-size: 12px;
+    position: absolute;
+    right: 10px; /* Adjust based on your design */
+    color: #000; /* Arrow color */
+    pointer-events: none; /* Prevent interaction */
+  }
 
-/* Additional styles to handle padding and appearance */
+  .custom-arrow {
+    position: absolute;
+    right: 10px;
+    pointer-events: none; /* Prevent interaction */
+    display: flex;
+    align-items: center;
+  }
 
-
-select { /* Adjust padding to fit your design */
-  border: none !important;
-  font-size: 16px;
-  background: inherit;
-  outline:0;
-  margin:0 !important;
-  color:#000;
-  /* Maintain default appearance */
-  appearance: none; /* Keeps the native arrow visible */
-  box-shadow: none !important;
- background-color: #fbfafa !important;
-}
-
-select:focus{
-  border:none !important; 
-}
-
-/* Additional styles for the select wrapper if needed */
-.select-wrapper {
-  padding: 5px 20px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fbfafa !important;
-  border-bottom: 1.2px solid #000;
-  box-shadow: 0.5px 0.5px 2px #eeeeee;
-}
-
-.select-wrapper::after {
-  content: ""; /* Custom double arrow symbols */
-  font-size: 12px;
-  position: absolute;
-  right: 10px; /* Adjust based on your design */
-  color: #000; /* Arrow color */
-  pointer-events: none; /* Prevent interaction */
-}
-
-.custom-arrow {
-  position: absolute;
-  right: 10px;
-  pointer-events: none; /* Prevent interaction */
-  display: flex;
-  align-items: center;
-}
-
-/* Style for SVG if needed */
-.custom-arrow svg {
-  width: 8px;
-  height: 14px;
-  fill: #000; /* Set the color of the SVG */
-}
- #openMaxMinInfo {
-    text-decoration:underline;
+  /* Style for SVG if needed */
+  .custom-arrow svg {
+    width: 8px;
+    height: 14px;
+    fill: #000; /* Set the color of the SVG */
+  }
+  #openMaxMinInfo {
+    text-decoration: underline;
     font-size: 1.4rem;
     margin-top: 0.7rem;
-    color:#7b7a7a
+    color: #7b7a7a;
   }
 
   .max-min-modal {
@@ -824,33 +810,33 @@ select:focus{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   }
 
   .max-min-dialog {
     position: fixed;
-    left:0%;
+    left: 0%;
     top: 0%;
     padding: 2.5rem;
     width: 50%;
     height: 90%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border: 0px solid black;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
   }
 
-  @media screen and (max-width : 900px) {
+  @media screen and (max-width: 900px) {
     .max-min-dialog {
-    padding: 1.5rem;
-    width: 100%;
-    height: 90%;
-    left:0%;
-    top: 0%;
+      padding: 1.5rem;
+      width: 100%;
+      height: 90%;
+      left: 0%;
+      top: 0%;
+    }
   }
-  }
-  
+
   /* The Close Button */
   .close-max-min-modal {
     color: #aaa;
@@ -858,7 +844,7 @@ select:focus{
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .close-max-min-modal:hover,
   .close-max-min-modal:focus {
     color: black;
@@ -871,12 +857,12 @@ select:focus{
     padding: 2px 16px;
     color: white;
   }
-  
+
   /* Modal Body */
   .max-min-modal-body {
     padding: 2px 16px;
   }
-  
+
   /* Modal Content */
   .max-min-modal-content {
     position: relative;
@@ -886,11 +872,17 @@ select:focus{
     width: 100%;
     margin-bottom: 1.5rem;
   }
-  
+
   /* Add Animation */
   @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+    from {
+      top: -300px;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
   }
 
   .max-min-modal-option {
@@ -903,133 +895,133 @@ select:focus{
     margin: 1.5rem;
   }
 
+  .flex-container {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 30px;
+  }
 
-     .flex-container {
-        flex-direction: column;
-        justify-content: space-between;
-        margin-top: 20px;
-        gap:30px;
-    }
+  .dimension-container {
+    background-color: #f9f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    padding: 5rem;
+  }
+  .min-container,
+  .max-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
 
-    .dimension-container{
-      background-color: #f9f8f8;
-      display: flex;
+  @media screen and (max-width: 900px) {
+    .min-container,
+    .max-container {
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex: 2;
-      padding: 5rem;  
     }
-    .min-container, .max-container {
-        display: flex;
-        justify-content:space-around;
-        align-items: center;
-        text-align: center;
-        gap:3rem;
-    } 
+  }
 
-    @media screen and (max-width:900px) {
-      .min-container, .max-container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } 
-    }
+  .rectangle {
+    position: relative;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+  }
 
-    .rectangle {
-        position: relative;
-        border: 2px solid #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 10px;
-        font-size: 1.4rem;
-        border-radius: 0.5rem;
-    }
+  .length-label-vertical {
+    position: absolute;
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+  }
 
-    .length-label-vertical {
-        position: absolute;
-        left: -45px;
-        top: 50%;
-        transform: translateY(-50%) rotate(-90deg);
-    }
+  .width-label-horizontal {
+    position: absolute;
+    top: -30px;
+  }
 
-    .width-label-horizontal {
-        position: absolute;
-        top: -30px;
-    }
+  .size-desc {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .size-desc {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .size-desc h4 {
+    font-size: 2.3rem;
+    margin: 0;
+    margin-bottom: 1.4rem;
+  }
 
-    .size-desc h4 {
-      font-size: 2.3rem;
-      margin: 0;
-      margin-bottom: 1.4rem;
-    }
+  .size-desc h5 {
+    font-size: 1.3rem;
+    margin: 0;
+    text-align: left;
+  }
 
-    .size-desc h5 {
-      font-size: 1.3rem;
-      margin: 0;
-      text-align: left;
-    }
+  .size-desc h6 {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0;
+    text-align: left;
+  }
 
-    .size-desc h6{
-      font-size: 1.7rem;  
-      font-weight: 500;
-      margin:0;
-      text-align: left;
-    }
+  .rectangle-info {
+    display: flex;
+  }
 
-    .rectangle-info {
-      display:flex;
-    }
+  .min-rectangle {
+    background-color: #e0e0e0;
+    width: 60px;
+    height: 80px;
+  }
 
-    .min-rectangle {
-        background-color: #e0e0e0;
-        width: 60px;
-        height: 80px;
+  .max-rectangle {
+    background-color: #e0e0e0;
+    width: 100px;
+    height: 140px;
+  }
 
-    }
+  .round-info {
+    display: none;
+  }
+  .round {
+    position: relative;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+  }
 
-    .max-rectangle {
-        background-color: #e0e0e0;
-        width: 100px;
-        height: 140px;
-    }
+  .min-round {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+  }
 
-    .round-info {
-      display: none;
-    }
-    .round {
-        position: relative;
-        border: 2px solid #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 10px;
-        font-size: 1.4rem;
-        border-radius: 0.5rem;
-    }
+  .max-round {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+  }
 
-    .min-round {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: #e0e0e0;
-    }
-
-     .max-round {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background-color: #e0e0e0;
-    }
-
-    .shape-picker-error {
+  .shape-picker-error {
     font-size: 1.1rem;
     color: red;
     text-align: left;
@@ -1038,5 +1030,4 @@ select:focus{
   .shape-picker-error-hide {
     display: none;
   }
-
 </style>

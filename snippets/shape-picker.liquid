@@ -664,8 +664,7 @@
   }
   .shape-pill {
     padding: 5px 15px;
-    color: {{ outline_btn_label }};
-    border: 1px solid {{ outline_btn }};
+    border: 1px solid #ccc;
     border-radius: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -679,9 +678,8 @@
     gap: 0.8rem;
   }
   .shape-pill.checked {
-    background-color: {{ solid_btn }};
-    color: {{ solid_btn_label }};
-    border-color: {{ solid_btn }};
+    background-color: rgba(var(--color-button));
+    color: rgb(var(--color-button-text));
   }
   .shape-pill.disabled {
     cursor: not-allowed;

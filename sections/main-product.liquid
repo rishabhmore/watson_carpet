@@ -520,7 +520,7 @@
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
                 <div class="product-shape-picker">
                   {% liquid
-                    render 'shape-picker', solid_btn: section.settings.vp_solid_btn_color, solid_btn_label: section.settings.vp_solid_btn_label, outline_btn: section.settings.vp_outlined_btn_color, outline_btn_label: section.settings.vp_outlined_btn_label, product_form_id: product_form_id
+                    render 'shape-picker', product_form_id: product_form_id
                   %}
                 </div>
                 {% render 'edge-style-picker', product_form_id: product_form_id %}
@@ -2168,34 +2168,6 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "Variant Picker Buttons"
-    },
-    {
-      "type": "color",
-      "id": "vp_solid_btn_color",
-      "label": "Selected Button Color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "vp_solid_btn_label",
-      "label": "Selected Button Label Color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "vp_outlined_btn_color",
-      "label": "Outlined Button Border Color",
-      "default": "#ccc"
-    },
-    {
-      "type": "color",
-      "id": "vp_outlined_btn_label",
-      "label": "Outlined Button Label Color",
-      "default": "#000000"
     },
     {
       "type": "header",
