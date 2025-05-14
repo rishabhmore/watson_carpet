@@ -236,7 +236,24 @@
                   {%- when 'image-with-text' -%}
                     <div class="footer-block__details-content rte ">
                       {%- if block.settings.iwt_image != blank -%}
-                        {{ block.settings.iwt_image | image_url: width: 300 | image_tag: loading: 'lazy' }}
+                        {% assign is_external = false %}
+                        {% assign new_tab = block.settings.new_tab %}
+                        {% if collection.url contains 'http' or block.settings.iwt_cta contains 'https' %}
+                          {% assign is_external = true %}
+                        {% endif %}
+                        <a
+                          href="{{ block.settings.iwt_cta }}"
+                          class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                          {% if new_tab and is_external %}
+                            rel="noopener" target="_blank"
+                          {% endif %}
+                        >
+                          {{
+                            block.settings.iwt_image
+                            | image_url: width: 300
+                            | image_tag: loading: 'lazy', style: 'border: none;'
+                          }}
+                        </a>
                       {%- endif -%}
                       {% if block.settings.iwt_heading != blank %}
                         <div style="text-align: {{ block.settings.iwt_heading_alignment }}">
@@ -514,6 +531,18 @@
           "type": "image_picker",
           "id": "iwt_image",
           "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "iwt_cta",
+          "label": "URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "default": false,
+          "label": "New Tab",
+          "info": "Open external link on new tab"
         },
         {
           "type": "header",
