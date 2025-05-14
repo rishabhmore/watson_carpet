@@ -15,6 +15,10 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .block-flex {
+    display: flex;
+  }
+
   /* Full‐Width in Footer Grid */
   .footer-block--fullwidth {
     display: flex;
@@ -241,19 +245,21 @@
                         {% if collection.url contains 'http' or block.settings.iwt_cta contains 'https' %}
                           {% assign is_external = true %}
                         {% endif %}
-                        <a
-                          href="{{ block.settings.iwt_cta }}"
-                          class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                          {% if new_tab and is_external %}
-                            rel="noopener" target="_blank"
-                          {% endif %}
-                        >
-                          {{
-                            block.settings.iwt_image
-                            | image_url: width: 300
-                            | image_tag: loading: 'lazy', style: 'border: none;'
-                          }}
-                        </a>
+                        <div class="block-flex footer-block--align-{{ block.settings.iwt_image_alignment }}">
+                          <a
+                            href="{{ block.settings.iwt_cta }}"
+                            class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            {% if new_tab and is_external %}
+                              rel="noopener" target="_blank"
+                            {% endif %}
+                          >
+                            {{
+                              block.settings.iwt_image
+                              | image_url: width: block.settings.iwt_image_width
+                              | image_tag: loading: 'lazy', style: 'border: none;'
+                            }}
+                          </a>
+                        </div>
                       {%- endif -%}
                       {% if block.settings.iwt_heading != blank %}
                         <div style="text-align: {{ block.settings.iwt_heading_alignment }}">
@@ -531,6 +537,27 @@
           "type": "image_picker",
           "id": "iwt_image",
           "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "iwt_image_width",
+          "min": 100,
+          "max": 300,
+          "step": 20,
+          "unit": "px",
+          "label": "Image Width",
+          "default": 300
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_image_alignment",
+          "default": "center",
+          "label": "Image Alignment",
+          "info": "Alignment will only reflect if the image width is smaller than width of the block content"
+        },
+        {
+          "type": "header",
+          "content": "External Links"
         },
         {
           "type": "url",

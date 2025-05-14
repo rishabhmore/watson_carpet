@@ -52,6 +52,8 @@
           "type": "image-with-text",
           "settings": {
             "iwt_image": "shopify://shop_images/image_2.png",
+            "iwt_image_width": 300,
+            "iwt_image_alignment": "center",
             "iwt_cta": "https://finerugsofcharleston.com/",
             "new_tab": true,
             "iwt_heading": "",
