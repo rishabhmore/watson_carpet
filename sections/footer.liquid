@@ -233,6 +233,20 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
+                  {%- when 'image-with-text' -%}
+                    <div class="footer-block__details-content rte ">
+                      {%- if block.settings.iwt_image != blank -%}
+                        {{ block.settings.iwt_image | image_url: width: 300 | image_tag: loading: 'lazy' }}
+                      {%- endif -%}
+                      {% if block.settings.iwt_heading != blank %}
+                        <div style="text-align: {{ block.settings.iwt_heading_alignment }}">
+                          {{ block.settings.iwt_heading }}
+                        </div>
+                      {% endif %}
+                      <div style="text-align: {{ block.settings.iwt_subtext_alignment }}">
+                        {{ block.settings.iwt_subtext }}
+                      </div>
+                    </div>
                   {%- when 'brand-image' -%}
                     <div class="footer-block__brand-image">
                       <a href="{{ block.settings.image_cta }}">
@@ -485,6 +499,49 @@
           "default": true,
           "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
           "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+        }
+      ]
+    },
+    {
+      "type": "image-with-text",
+      "name": "Image with Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "iwt_image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "iwt_heading",
+          "default": "t:sections.footer.blocks.text.settings.heading.default",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_heading_alignment",
+          "default": "left",
+          "label": "Heading Alignment"
+        },
+        {
+          "type": "richtext",
+          "id": "iwt_subtext",
+          "default": "t:sections.footer.blocks.text.settings.subtext.default",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_subtext_alignment",
+          "default": "left",
+          "label": "Subtext Alignment"
         }
       ]
     },
