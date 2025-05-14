@@ -96,15 +96,17 @@
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
-          {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            endif
-          -%}
+          {% comment %}
+            {%- liquid
+              if section.blocks.size == 9
+                assign footer_grid_class = 'grid--3-col-tablet'
+              elsif section.blocks.size > 6
+                assign footer_grid_class = 'grid--4-col-desktop'
+              endif
+            -%}
+          {% endcomment %}
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
@@ -798,6 +800,19 @@
       "id": "show_policy",
       "default": true,
       "label": "t:sections.footer.settings.show_policy.label"
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.multicolumn.settings.columns_desktop.label"
     },
     {
       "type": "header",
