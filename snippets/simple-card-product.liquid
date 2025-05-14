@@ -1,5 +1,6 @@
 {% comment %}
   Renders a product card
+
   Accepts:
   - card_product: {Object} Product Liquid object (optional)
   - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
@@ -15,17 +16,26 @@
   - horizontal_class: {Boolean} Add a card--horizontal class if set to true. Default: false (optional)
   - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
+
   Usage:
   {% render 'simple-card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
+{% assign rug_material = card_product.selected_or_first_available_variant.metafields.fabric.metadata %}
+{% assign material = rug_material.value %}
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
+{% unless product.has_only_default_variant %}
+  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
+  {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
+{% endunless %}
 
 {%- if card_product and card_product != empty -%}
   {%- liquid
@@ -39,6 +49,8 @@
       assign ratio = 1
     endif
   -%}
+  {%- assign card_product.featured_media = card_product.selected_or_first_available_variant.featured_media -%}
+  {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
 
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
@@ -68,6 +80,7 @@
             <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
               <div class="media media--transparent media--hover-effect">
                 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+
                 <img
                   srcset="
                     {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -89,6 +102,7 @@
                   height="{{ card_product.featured_media.height }}"
                 >
                 {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
                 {%- if card_product.media[1] != null and show_secondary_image -%}
                   <img
                     srcset="
@@ -166,15 +180,21 @@
             </a>
           </h3>
           <div class="card-information">
-            {% render 'recently-added-badge' %}
+            {% if section.settings.recently_added_badge %}
+              {% render 'recently-added-badge' %}
+            {% endif %}
+
             <span class="product-material">
               {{ material.fiberContent | downcase }}
             </span>
+
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
             {%- endif -%}
+
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
+
             {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
               {% liquid
                 assign rating_decimal = 0
@@ -210,11 +230,12 @@
                 </span>
               </p>
             {%- endif -%}
+
             <div class="card-price-container">
-              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+              {% render 'simple-price', product: card_product, price_class: '', show_compare_at_price: true %}
             </div>
             {%- if card_product.quantity_price_breaks_configured? -%}
-              {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
+              {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 {% liquid
                   assign quantity_rule = card_product.selected_or_first_available_variant.quantity_rule
                   assign has_qty_rules = false
@@ -234,7 +255,7 @@
                   <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
                 </div>
               {% endif %}
-              {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
+              {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
                 <div
                   class="global-settings-popup quantity-popover__info"
                   tabindex="-1"
@@ -305,7 +326,7 @@
                 assign qty_rules = true
               endif
             -%}
-            {%- if card_product.variants_count > 1 or qty_rules -%}
+            {%- if card_product.variants.size > 1 or qty_rules -%}
               <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
                 <button
                   id="{{ product_form_id }}-submit"
@@ -393,7 +414,7 @@
             {%- endif -%}
           </div>
         {% elsif quick_add == 'bulk' %}
-          {% if card_product.variants_count == 1 %}
+          {% if card_product.variants.size == 1 %}
             <quick-add-bulk
               data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
               id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
@@ -626,58 +647,65 @@
     </div>
   </div>
 {%- endif -%}
+
 <style>
-  .card__media::before{
-  pointer-events: all;
+  .card__media::before {
+    pointer-events: all;
   }
-  .product-title{
-  margin-bottom: 0px ;
-  margin-top:0px;
-  text-transform: capitalize;
+
+  .product-title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /* font-family: Bodoni; */
+    text-transform: capitalize;
   }
-  .product-material{
-  text-transform: capitalize;
-  font-weight: lighter;
-  font-size: smaller;
+  .product-material {
+    text-transform: capitalize;
+    font-weight: lighter;
+    font-size: smaller;
   }
-  .card-price-container{
-  margin-top: 0 !important;
+  .card-price-container {
+    margin-top: 0 !important;
   }
-  .card__content .custom-variant-selects{
-  height:4rem;
+  .card__content .custom-variant-selects {
+    height: 4rem;
   }
+
   .card__information {
-  padding: 0;
+    padding: 0;
   }
+
   .card-link {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
   }
-  .color-variant-container{
-  background-color: rgba(236, 236, 236, 0.9);
-  width: 100%;
-  position: relative;
-  display: block;
-  padding: 5px 10px;
+  .color-variant-container {
+    background-color: rgba(236, 236, 236, 0.9);
+    width: 100%;
+    position: relative;
+    display: block;
+    padding: 5px 10px;
   }
-  .card-img-link{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:1000;
-  pointer-events: all !important;
+  .card-img-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: all !important;
   }
-  .card-img-link:hover{
-  cursor: pointer;
+  .card-img-link:hover {
+    cursor: pointer;
   }
-  .card-wrapper{
-  margin-top:1rem;
-  pointer-events: all !important;
+
+  .card-wrapper {
+    margin-top: 1rem;
+    pointer-events: all !important;
   }
-  .price-item{
-  font-weight: lighter;
-  font-size: 1.5rem;
+
+  .price-item {
+    font-weight: lighter;
+    font-size: 1.5rem;
   }
 </style>

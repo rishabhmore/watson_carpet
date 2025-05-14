@@ -50,7 +50,7 @@
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
         "dropdown_hover": true,
-        "sticky_header_type": "always",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "new_tab": true,
         "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",

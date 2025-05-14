@@ -91,7 +91,7 @@
               aria-labelledby="predictive-search-products"
             >
               {%- for product in predictive_search.resources.products -%}
-                {%- unless product.tags contains 'For cart' -%}
+                {%- unless product.tags contains 'For cart' or product.tags contains 'fabric_samples' -%}
                   <li
                     id="predictive-search-option-product-{{ forloop.index }}"
                     class="predictive-search__list-item"

@@ -7,14 +7,12 @@
 -%}
 
 <div class="variant-options-container">
-
-{%- assign values_count = option.values.size -%}
+  {%- assign values_count = option.values.size -%}
   <!-- Get the count of values -->
-  {%- assign max_display_count = 4 -%}
+  {%- assign max_display_count = 5 -%}
   <!-- Set max number of visible swatches to display -->
 
   {%- for value in option.values -%}
-
     {%- assign variant = product.variants | where: 'option1', value | first -%}
     {%- if variant and variant.featured_image -%}
       {%- assign swatch_image_url = variant.featured_image.src | image_url: width: 50 -%}
@@ -49,16 +47,14 @@
           <span class="visually-hidden">{{ value | escape }}</span>
           {{ label_unavailable }}
         {%- endcapture -%}
-        {%
-          render 'swatch-input', id: input_id, name: input_name, value: value | escape, swatch: value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled: option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props: input_dataset, swatch_image_url: swatch_image_url, variant_id: variant.id, product_handle: product.handle
-        %}
-        {%- elsif forloop.index0 == max_display_count and values_count > max_display_count -%}
+        {% render 'swatch-input', id: input_id, name: input_name, value: value | escape, swatch: value.swatch, product_form_id: product_form_id, checked: value.selected, visually_disabled: option_disabled, shape: block.settings.swatch_shape, help_text: help_text, additional_props: input_dataset, swatch_image_url: swatch_image_url, variant_id: variant.id, product_handle: product.handle %}
+      {%- elsif forloop.index0 == max_display_count and values_count > max_display_count -%}
         <!-- Display the '10+' style swatch for remaining values -->
         <label class="swatch-input__label  swatch-input__label--square">
-          <span class="show-more-swatch" onclick="window.location.href='{{ product.url }}';">{{ values_count | minus: max_display_count }}+</span>
+          <span class="show-more-swatch" onclick="window.location.href='{{ product.url }}';">
+            {{- values_count | minus: max_display_count }}+</span
+          >
         </label>
-
-
       {%- endif -%}
 
     {%- elsif picker_type == 'button' -%}
@@ -70,21 +66,20 @@
         value="{{ value | escape }}"
         form="{{ product_form_id }}"
         {% if value.selected %}
-        checked
+          checked
         {% endif %}
         {% if option_disabled %}
-        class="disabled"
+          class="disabled"
         {% endif %}
-        {{ input_dataset }}>
+        {{ input_dataset }}
+      >
       <label for="{{ input_id }}" class="button-label">
         {{ value -}}
         {{ label_unavailable }}
       </label>
     {%- endif -%}
-
   {%- endfor -%}
 </div>
-
 
 <style>
   /* Custom styling for the variant options */
@@ -137,7 +132,6 @@
     font-size: small;
     cursor: pointer;
   }
-
 </style>
 
 <script>

@@ -101,6 +101,16 @@
             {%- endfor -%}
           </div>
         </div>
+        {%- if section.settings.view_all.url -%}
+          <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+            <a
+              href="{{ section.settings.view_all.url }}"
+              class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+            >
+              View All FAQ's
+            </a>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -212,6 +222,35 @@
       "id": "open_first_collapsible_row",
       "default": false,
       "label": "t:sections.collapsible_content.settings.open_first_collapsible_row.label"
+    },
+    {
+      "type": "header",
+      "content": "View All"
+    },
+    {
+      "type": "page",
+      "id": "view_all",
+      "label": "Add Page Url"
+    },
+    {
+      "type": "select",
+      "id": "view_all_style",
+      "label": "t:sections.featured-collection.settings.view_all_style.label",
+      "options": [
+        {
+          "value": "link",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__1.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__2.label"
+        },
+        {
+          "value": "solid",
+          "label": "t:sections.featured-collection.settings.view_all_style.options__3.label"
+        }
+      ],
+      "default": "solid"
     },
     {
       "type": "header",
