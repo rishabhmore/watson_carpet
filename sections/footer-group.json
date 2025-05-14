@@ -21,39 +21,10 @@
             "menu": "",
             "new_tab": true
           }
-        },
-        "brand_information_rDDR9L": {
-          "type": "brand_information",
-          "disabled": true,
-          "settings": {
-            "logo_link": "shopify://products/anatolia-1",
-            "show_social": false
-          }
-        },
-        "link_list_cMCaiH": {
-          "type": "link_list",
-          "disabled": true,
-          "settings": {
-            "heading": "<strong>PRODUCTS</strong>",
-            "menu": "",
-            "new_tab": true
-          }
-        },
-        "link_list_X73fx9": {
-          "type": "link_list",
-          "disabled": true,
-          "settings": {
-            "heading": "<strong>GET IN TOUCH</strong>",
-            "menu": "",
-            "new_tab": true
-          }
         }
       },
       "block_order": [
-        "link_list_zPA6ff",
-        "brand_information_rDDR9L",
-        "link_list_cMCaiH",
-        "link_list_X73fx9"
+        "link_list_zPA6ff"
       ],
       "custom_css": [],
       "settings": {
@@ -62,13 +33,13 @@
         "newsletter_alignment": "center",
         "newsletter_heading": "SUBSCRIBE",
         "enable_follow_on_shop": false,
-        "show_social": false,
+        "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": false,
         "show_policy": true,
         "margin_top": 0,
-        "padding_top": 24,
+        "padding_top": 16,
         "padding_bottom": 0
       }
     }

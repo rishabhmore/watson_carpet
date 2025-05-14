@@ -19,11 +19,11 @@
       }
     },
     "product-grid": {
-      "type": "main-collection-product-grid",
+      "type": "stark-collection-product-grid",
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
-        "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
+        "color_scheme": "",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -37,7 +37,7 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36,
-        "enable_border": true
+        "enable_border": false
       }
     },
     "collapsible_content_1": {
@@ -95,6 +95,8 @@
         "color_scheme": "",
         "container_color_scheme": "",
         "open_first_collapsible_row": false,
+        "view_all": "faq",
+        "view_all_style": "solid",
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 36,

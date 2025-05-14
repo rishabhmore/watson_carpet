@@ -298,7 +298,7 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- unless item.tags contains 'For cart' -%}
+                        {%- unless item.tags contains 'For cart' or item.tags contains 'fabric_samples' -%}
                           {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
                           {% render 'card-product',
                             card_product: item,
@@ -388,10 +388,12 @@
         {
           "value": "adapt",
           "label": "t:sections.main-search.settings.image_ratio.options__1.label"
-        }, {
+        },
+        {
           "value": "portrait",
           "label": "t:sections.main-search.settings.image_ratio.options__2.label"
-        }, {
+        },
+        {
           "value": "square",
           "label": "t:sections.main-search.settings.image_ratio.options__3.label"
         }
@@ -418,16 +420,20 @@
         {
           "value": "chevronleft",
           "label": "t:sections.all.image_shape.options__4.label"
-        }, {
+        },
+        {
           "value": "chevronright",
           "label": "t:sections.all.image_shape.options__5.label"
-        }, {
+        },
+        {
           "value": "diamond",
           "label": "t:sections.all.image_shape.options__6.label"
-        }, {
+        },
+        {
           "value": "parallelogram",
           "label": "t:sections.all.image_shape.options__7.label"
-        }, {
+        },
+        {
           "value": "round",
           "label": "t:sections.all.image_shape.options__8.label"
         }
@@ -435,42 +441,50 @@
       "default": "default",
       "label": "t:sections.all.image_shape.label",
       "info": "t:sections.all.image_shape.info"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "show_secondary_image",
       "default": false,
       "label": "t:sections.main-search.settings.show_secondary_image.label"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "show_vendor",
       "default": false,
       "label": "t:sections.main-search.settings.show_vendor.label"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "show_rating",
       "default": false,
       "label": "t:sections.main-search.settings.show_rating.label",
       "info": "t:sections.main-search.settings.show_rating.info"
-    }, {
+    },
+    {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header__1.content"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "enable_filtering",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
       "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
-    }, {
+    },
+    {
       "type": "select",
       "id": "filter_type",
       "options": [
         {
           "value": "horizontal",
           "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
-        }, {
+        },
+        {
           "value": "vertical",
           "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
-        }, {
+        },
+        {
           "value": "drawer",
           "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
         }
@@ -478,29 +492,35 @@
       "default": "horizontal",
       "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
       "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "enable_sorting",
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
-    }, {
+    },
+    {
       "type": "header",
       "content": "t:sections.main-search.settings.header__2.content",
       "info": "t:sections.main-search.settings.header__2.info"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "article_show_date",
       "default": true,
       "label": "t:sections.main-search.settings.article_show_date.label"
-    }, {
+    },
+    {
       "type": "checkbox",
       "id": "article_show_author",
       "default": false,
       "label": "t:sections.main-search.settings.article_show_author.label"
-    }, {
+    },
+    {
       "type": "header",
       "content": "t:sections.main-search.settings.header_mobile.content"
-    }, {
+    },
+    {
       "type": "select",
       "id": "columns_mobile",
       "default": "2",
@@ -509,15 +529,18 @@
         {
           "value": "1",
           "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
-        }, {
+        },
+        {
           "value": "2",
           "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
         }
       ]
-    }, {
+    },
+    {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
-    }, {
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -526,7 +549,8 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 36
-    }, {
+    },
+    {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
