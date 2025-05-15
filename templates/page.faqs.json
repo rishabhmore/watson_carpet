@@ -9,72 +9,171 @@
  */
 {
   "sections": {
-    "rich_text": {
-      "type": "rich-text",
+    "image_banner_qi9LEC": {
+      "type": "image-banner",
       "blocks": {
-        "heading": {
+        "heading_XfCURg": {
           "type": "heading",
           "settings": {
             "heading": "<strong>FAQ's</strong>",
-            "heading_size": "hxl"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "heading_size": "h1"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "heading_XfCURg"
       ],
+      "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "image": "shopify://shop_images/5b2636110ccebafc18ffed30f96e34785937b175.png",
+        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
       }
     },
-    "collapsible_content_1": {
+    "collapsible_content_faqs": {
       "type": "collapsible-content",
       "blocks": {
         "collapsible_row_1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What size should I order?",
+            "heading": "How do samples work?",
             "icon": "none",
-            "row_content": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "row_content": "<p>Buy a $10 box with up to five swatches; every box earns a one-time $50 rug credit e-mailed to you. Use one credit per rug order, and designers can help you choose swatches.</p>",
             "page": ""
           }
         },
         "collapsible_row_2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Where can I find information on sustainability?",
+            "heading": "Do I get a refund for returned samples?",
             "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
+            "row_content": "<p>Each sample will be shipped with a return bag as well as a prepaid return label. Place the sample in the return bag, stick on the prepaid label, and drop the box in any USPS mailbox or post office.</p>",
             "page": ""
           }
         },
         "collapsible_row_3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What is your return policy?",
+            "heading": "What shipping options are there?",
             "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
+            "row_content": "<p>Standard Parcel delivery to doorstep – $300, 2-3 weeks (small rugs)<br>White Glove delivery – $400, 4-5 weeks, signature required<br>White Glove Plus delivery – $500, crew carries in, moves furniture, unwraps, and lays out rug.<br><br>Extra fees may apply for oversized rugs or remote areas.</p>",
             "page": ""
           }
         },
         "collapsible_row_4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How long will it take until I receive my order?",
+            "heading": "Can I return or exchange a rug?",
             "icon": "none",
-            "row_content": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
+            "row_content": "<p>Only if you cancel within 24 hours of ordering; after that, no refunds or exchanges.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does custom sizing work?",
+            "icon": "none",
+            "row_content": "<p>Order rectangles or rounds from 2′×2′ up to 15′×25′; e-mail if you need smaller or larger.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I choose the right size?",
+            "icon": "none",
+            "row_content": "<p>Typical living room rug sizes are 8’x10′ and 9’x12′.<br>Make sure your rug is at least 6″ wider (8″ is ideal) than your sofa on both sides.<br>Typically run the rug the length of the sofa.<br>Give 30″ to 36″ of a walkway between large furniture pieces (if your living room allows for it) if not then at least 18″-24″. That will help to inform your rug size.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if my order is wrong?",
+            "icon": "none",
+            "row_content": "<p>E-mail us at _____ within 30 days. We will get back to you within 24 hours and work to get your rug returned or exchanged.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I send samples back?",
+            "icon": "none",
+            "row_content": "<p>Each sample will be shipped with a return bag as well as a prepaid return label. Place the sample in the return bag, stick on the prepaid label, and drop the box in any USPS mailbox or post office.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where do you ship?",
+            "icon": "none",
+            "row_content": "<p>Anywhere in the U.S., including Hawaii and Alaska.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change or cancel after ordering?",
+            "icon": "none",
+            "row_content": "<p>You have 24 hours to edit, cancel, or update the address by emailing or texting support.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I reschedule delivery?",
+            "icon": "none",
+            "row_content": "<p>Use the link in the Ryder confirmation e-mail to pick a new delivery time.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When will my rug arrive?",
+            "icon": "none",
+            "row_content": "<p>Most rugs arrive in 2-4 weeks (Moroccan-Inspired: 3-5 weeks). The 2-week window applies only to parcel-eligible sizes.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_13": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will the pattern resize?",
+            "icon": "none",
+            "row_content": "<p>No—the motif stays the same scale; bigger rugs just repeat it more times.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_14": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can you make custom shapes?",
+            "icon": "none",
+            "row_content": "<p>Not yet; only rectangles and rounds are available for now.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_15": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "My rug arrived damaged—now what?",
+            "icon": "none",
+              "row_content": "<p>E-mail us at within 30 days. We will get back to you within 24 hours and work to get your rug returned or exchanged.</p>",
             "page": ""
           }
         }
@@ -83,129 +182,28 @@
         "collapsible_row_1",
         "collapsible_row_2",
         "collapsible_row_3",
-        "collapsible_row_4"
+        "collapsible_row_4",
+        "collapsible_row_5",
+        "collapsible_row_6",
+        "collapsible_row_7",
+        "collapsible_row_8",
+        "collapsible_row_9",
+        "collapsible_row_10",
+        "collapsible_row_11",
+        "collapsible_row_12",
+        "collapsible_row_13",
+        "collapsible_row_14",
+        "collapsible_row_15"
       ],
       "settings": {
-        "caption": "Below are some common questions about shipping, returns, and exchanges",
-        "heading": "<strong>Shipping & Returns</strong>",
+        "caption": "",
+        "heading": "",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
         "color_scheme": "",
         "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "collapsible_content_2": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How do I make a purchase?",
-            "icon": "none",
-            "row_content": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_2": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "How do I know if my order is confirmed?",
-            "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I change my shipping address after my order is placed?",
-            "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Can I change my billing address after placing my order?",
-            "icon": "none",
-            "row_content": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_1",
-        "collapsible_row_2",
-        "collapsible_row_3",
-        "collapsible_row_4"
-      ],
-      "settings": {
-        "caption": "Below are some of are common questions about orders",
-        "heading": "<strong>Orders</strong>",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "collapsible_content_3": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "What size should I order?",
-            "icon": "none",
-            "row_content": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_2": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Where can I find information on sustainability?",
-            "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Do you offer gift cards?",
-            "icon": "none",
-            "row_content": "<p>use this text to answer questions in as much detail as possible for your customers.</p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_1",
-        "collapsible_row_2",
-        "collapsible_row_3"
-      ],
-      "settings": {
-        "caption": "Below are some common questions about our products",
-        "heading": "<strong>Products</strong>",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
+        "open_first_collapsible_row": true,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 36,
@@ -214,9 +212,7 @@
     }
   },
   "order": [
-    "rich_text",
-    "collapsible_content_1",
-    "collapsible_content_2",
-    "collapsible_content_3"
+    "image_banner_qi9LEC",
+    "collapsible_content_faqs"
   ]
 }
