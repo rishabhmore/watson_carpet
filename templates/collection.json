@@ -37,7 +37,7 @@
         "image": "shopify://shop_images/collection_sample.png",
         "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
         "image_overlay_opacity": 30,
-        "image_height": "adapt",
+        "image_height": "slim",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
