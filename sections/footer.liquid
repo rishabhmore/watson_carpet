@@ -274,7 +274,16 @@
                     </div>
                   {%- when 'brand-image' -%}
                     <div class="footer-block__brand-image">
-                      <a href="{{ block.settings.image_cta }}">
+                      {% assign is_external = false %}
+                      {% if collection.url contains 'http' or block.settings.image_cta contains 'https' %}
+                        {% assign is_external = true %}
+                      {% endif %}
+                      <a
+                        href="{{ block.settings.image_cta }}"
+                        {% if new_tab and is_external %}
+                          rel="noopener" target="_blank"
+                        {% endif %}
+                      >
                         {{
                           block.settings.brand_image
                           | image_url: width: 1100
