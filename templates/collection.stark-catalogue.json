@@ -13,48 +13,17 @@
       "type": "main-collection-banner",
       "disabled": true,
       "settings": {
-        "show_collection_description": false,
+        "show_collection_description": true,
         "show_collection_image": true,
         "color_scheme": "scheme-1"
       }
     },
-    "image_banner_8CfWWD": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_wVefPj": {
-          "type": "heading",
-          "settings": {
-            "heading": "PRIVATE COLLECTIONS",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_wVefPj"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/collection_sample.png",
-        "placeholder_image_url": "03-Uptown-Dodson-scaled.jpg",
-        "image_overlay_opacity": 30,
-        "image_height": "slim",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "desktop_content_width": 0,
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
-    },
     "product-grid": {
-      "type": "main-collection-product-grid",
+      "type": "stark-collection-product-grid",
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
-        "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
+        "color_scheme": "",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -68,7 +37,7 @@
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36,
-        "enable_border": true
+        "enable_border": false
       }
     },
     "collapsible_content_1": {
@@ -123,7 +92,7 @@
         "heading_size": "h1",
         "heading_alignment": "left",
         "layout": "none",
-        "color_scheme": "scheme-0ed3ab7b-dfa5-4308-bfb2-17d9e7ec6317",
+        "color_scheme": "",
         "container_color_scheme": "",
         "open_first_collapsible_row": false,
         "view_all": "faq",
@@ -137,7 +106,6 @@
   },
   "order": [
     "banner",
-    "image_banner_8CfWWD",
     "product-grid",
     "collapsible_content_1"
   ]

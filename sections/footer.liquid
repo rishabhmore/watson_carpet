@@ -15,6 +15,30 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .block-flex {
+    display: flex;
+  }
+
+  /* Full‐Width in Footer Grid */
+  .footer-block--fullwidth {
+    display: flex;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Brand Image Alignment variants */
+  .footer-block--align-left {
+    justify-content: flex-start;
+  }
+
+  .footer-block--align-center {
+    justify-content: center;
+  }
+
+  .footer-block--align-right {
+    justify-content: flex-end;
+  }
+
   @media screen and (min-width: 750px) {
     .footer {
       margin-top: {{ section.settings.margin_top }}px;
@@ -72,24 +96,29 @@
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
         {%- if section.blocks.size > 0 -%}
-          {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
-            endif
-          -%}
+          {% comment %}
+            {%- liquid
+              if section.blocks.size == 9
+                assign footer_grid_class = 'grid--3-col-tablet'
+              elsif section.blocks.size > 6
+                assign footer_grid_class = 'grid--4-col-desktop'
+              endif
+            -%}
+          {% endcomment %}
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet grid--{{ section.settings.columns_desktop }}-col-desktop{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
           >
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="
+                  footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}
+                  {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+                  {% if block.settings.brand_image_fullwidth %} footer-block--fullwidth{% endif %}
+                  {% if block.settings.brand_image_fullwidth %} footer-block--align-{{ block.settings.brand_image_alignment }}{% endif %}
+                "
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -209,6 +238,62 @@
                       {%- else -%}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
+                    </div>
+                  {%- when 'image-with-text' -%}
+                    <div class="footer-block__details-content rte ">
+                      {%- if block.settings.iwt_image != blank -%}
+                        {% assign is_external = false %}
+                        {% assign new_tab = block.settings.new_tab %}
+                        {% if collection.url contains 'http' or block.settings.iwt_cta contains 'https' %}
+                          {% assign is_external = true %}
+                        {% endif %}
+                        <div class="block-flex footer-block--align-{{ block.settings.iwt_image_alignment }}">
+                          <a
+                            href="{{ block.settings.iwt_cta }}"
+                            class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            {% if new_tab and is_external %}
+                              rel="noopener" target="_blank"
+                            {% endif %}
+                          >
+                            {{
+                              block.settings.iwt_image
+                              | image_url: width: block.settings.iwt_image_width
+                              | image_tag: loading: 'lazy', style: 'border: none;'
+                            }}
+                          </a>
+                        </div>
+                      {%- endif -%}
+                      {% if block.settings.iwt_heading != blank %}
+                        <div style="text-align: {{ block.settings.iwt_heading_alignment }}">
+                          {{ block.settings.iwt_heading }}
+                        </div>
+                      {% endif %}
+                      <div style="text-align: {{ block.settings.iwt_subtext_alignment }}">
+                        {{ block.settings.iwt_subtext }}
+                      </div>
+                    </div>
+                  {%- when 'brand-image' -%}
+                    <div class="footer-block__brand-image">
+                      {% assign is_external = false %}
+                      {% if collection.url contains 'http' or block.settings.image_cta contains 'https' %}
+                        {% assign is_external = true %}
+                      {% endif %}
+                      <a
+                        href="{{ block.settings.image_cta }}"
+                        {% if new_tab and is_external %}
+                          rel="noopener" target="_blank"
+                        {% endif %}
+                      >
+                        {{
+                          block.settings.brand_image
+                          | image_url: width: 1100
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
+                            height: brand_image_height,
+                            width: settings.brand_image_width
+                        -}}
+                      </a>
                     </div>
                 {%- endcase -%}
               </div>
@@ -400,15 +485,15 @@
           "info": "t:sections.footer.blocks.link_list.settings.menu.info"
         },
         {
-        "type": "header",
-        "content": "New Tab"
+          "type": "header",
+          "content": "New Tab"
         },
         {
-        "type":"checkbox",
-        "id":"new_tab",
-        "default":false,
-        "label":"New Tab",
-        "info":"Open external link on new tab"
+          "type": "checkbox",
+          "id": "new_tab",
+          "default": false,
+          "label": "New Tab",
+          "info": "Open external link on new tab"
         }
       ]
     },
@@ -441,18 +526,90 @@
           "type": "header",
           "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
         },
-        {"type":"url",
-          "id":"logo_link",
-          "label": "Logo URL"
-          },
+        { "type": "url", "id": "logo_link", "label": "Logo URL" },
         {
           "type": "checkbox",
           "id": "show_social",
           "default": true,
           "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
           "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+        }
+      ]
+    },
+    {
+      "type": "image-with-text",
+      "name": "Image with Text",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image Content"
         },
-
+        {
+          "type": "image_picker",
+          "id": "iwt_image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "iwt_image_width",
+          "min": 100,
+          "max": 300,
+          "step": 20,
+          "unit": "px",
+          "label": "Image Width",
+          "default": 300
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_image_alignment",
+          "default": "center",
+          "label": "Image Alignment",
+          "info": "Alignment will only reflect if the image width is smaller than width of the block content"
+        },
+        {
+          "type": "header",
+          "content": "External Links"
+        },
+        {
+          "type": "url",
+          "id": "iwt_cta",
+          "label": "URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "default": false,
+          "label": "New Tab",
+          "info": "Open external link on new tab"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "iwt_heading",
+          "default": "t:sections.footer.blocks.text.settings.heading.default",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_heading_alignment",
+          "default": "left",
+          "label": "Heading Alignment"
+        },
+        {
+          "type": "richtext",
+          "id": "iwt_subtext",
+          "default": "t:sections.footer.blocks.text.settings.subtext.default",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        },
+        {
+          "type": "text_alignment",
+          "id": "iwt_subtext_alignment",
+          "default": "left",
+          "label": "Subtext Alignment"
+        }
       ]
     },
     {
@@ -470,6 +627,35 @@
           "id": "subtext",
           "default": "t:sections.footer.blocks.text.settings.subtext.default",
           "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        }
+      ]
+    },
+    {
+      "type": "brand-image",
+      "name": "Custom Brand Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand Logo Image"
+        },
+        {
+          "type": "url",
+          "id": "image_cta",
+          "label": "URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "brand_image_fullwidth",
+          "label": "Cover Full Width of the section?",
+          "default": false
+        },
+        {
+          "type": "text_alignment",
+          "id": "brand_image_alignment",
+          "default": "left",
+          "label": "Image Alignment",
+          "info": "Only applicable if block covers full width of the section!"
         }
       ]
     },
@@ -533,9 +719,10 @@
       "default": true,
       "label": "t:sections.footer.settings.newsletter_enable.label"
     },
-    {"type": "select",
-          "id": "newsletter_alignment",
-          "options": [
+    {
+      "type": "select",
+      "id": "newsletter_alignment",
+      "options": [
         {
           "value": "left",
           "label": "t:sections.image-with-text.settings.desktop_content_alignment.options__1.label"
@@ -622,6 +809,19 @@
       "id": "show_policy",
       "default": true,
       "label": "t:sections.footer.settings.show_policy.label"
+    },
+    {
+      "type": "header",
+      "content": "Columns"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.multicolumn.settings.columns_desktop.label"
     },
     {
       "type": "header",

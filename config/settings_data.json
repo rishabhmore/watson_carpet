@@ -9,11 +9,11 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/wc-logo.png",
-    "logo_width": 150,
-    "type_header_font": "poppins_n5",
+    "logo": "shopify://shop_images/fr-ch-logo.png",
+    "logo_width": 300,
+    "type_header_font": "fira_sans_n4",
     "heading_scale": 100,
-    "type_body_font": "poppins_n4",
+    "type_body_font": "montserrat_n4",
     "body_scale": 100,
     "page_width": 1200,
     "spacing_sections": 0,
@@ -105,14 +105,15 @@
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-5",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_image": "shopify://shop_images/wc-logo.png",
-    "social_facebook_link": "https://www.facebook.com/nike",
-    "social_instagram_link": "https://www.instagram.com/nike",
-    "social_youtube_link": "https://www.youtube.com/nike",
+    "brand_image": "shopify://shop_images/image_2.png",
+    "brand_image_width": 410,
+    "social_facebook_link": "https://www.facebook.com/FineRugsOfCharleston/",
+    "social_instagram_link": "https://www.instagram.com/finerugsofcharleston/",
+    "social_youtube_link": "",
     "social_tiktok_link": "",
-    "social_twitter_link": "https://www.x.com/nike",
+    "social_twitter_link": "",
     "social_snapchat_link": "",
-    "social_pinterest_link": "",
+    "social_pinterest_link": "https://www.pinterest.com/ideas/",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
@@ -236,21 +237,21 @@
           "background": "#ffffff",
           "background_gradient": "",
           "text": "#151515",
-          "button": "#507d60",
+          "button": "#42605f",
           "button_label": "#ffffff",
-          "secondary_button_label": "#507d60",
-          "shadow": "#507d60"
+          "secondary_button_label": "#42605f",
+          "shadow": "#42605f"
         }
       },
       "scheme-57782d43-f7e9-4299-8c64-5fd97176f8b0": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#42605f",
           "background_gradient": "",
-          "text": "#101010",
-          "button": "#101010",
+          "text": "#ffffff",
+          "button": "#ffffff",
           "button_label": "#ffffff",
-          "secondary_button_label": "#009390",
-          "shadow": "#009390"
+          "secondary_button_label": "#42605f",
+          "shadow": "#42605f"
         }
       }
     }

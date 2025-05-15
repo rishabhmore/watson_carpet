@@ -1,6 +1,5 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-{% assign placeholder_url = section.settings.placeholder_image_url |  asset_url%}
-
+{% assign placeholder_url = section.settings.placeholder_image_url | asset_url %}
 
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
@@ -22,7 +21,6 @@
         display: block;
       }
     }
-    
   {%- endstyle -%}
 {%- endif -%}
 
@@ -33,7 +31,7 @@
   @media screen and (min-width: 750px) {
     {% if section.settings.desktop_content_width != 0 %}
        #Banner-{{ section.id }} .banner__box {
-          width:{{ section.settings.desktop_content_width | append: '%'}};  
+          width:{{ section.settings.desktop_content_width | append: '%'}};
         }
       {% endif %}
   }
@@ -94,7 +92,7 @@
     </div>
   {%- elsif section.settings.image_2 == blank -%}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %}  placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      <img src="{{placeholder_url}}" height="800" width="1500"/>
+      <img src="{{placeholder_url}}" height="800" width="1500">
     </div>
   {%- endif -%}
   {%- if section.settings.image_2 != blank -%}
@@ -195,11 +193,11 @@
       "id": "image_2",
       "label": "t:sections.image-banner.settings.image_2.label"
     },
-{
+    {
       "type": "text",
       "id": "placeholder_image_url",
       "label": "Placeholder Image URL",
-      "default": "03-Uptown-Dodson-scaled.jpg" 
+      "default": "03-Uptown-Dodson-scaled.jpg"
     },
     {
       "type": "range",
@@ -218,6 +216,10 @@
         {
           "value": "adapt",
           "label": "t:sections.image-banner.settings.image_height.options__1.label"
+        },
+        {
+          "value": "slim",
+          "label": "Slim"
         },
         {
           "value": "small",
@@ -306,10 +308,10 @@
       "default": "center",
       "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
     },
-     {
+    {
       "type": "range",
       "id": "desktop_content_width",
-       "min": 0,
+      "min": 0,
       "max": 100,
       "step": 10,
       "unit": "%",
